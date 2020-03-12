@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 03 | WEB207</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#list"><i class="fas fa-list-ul"></i> DANH SÁCH</a></li>
+            <li><a data-toggle="pill" href="#update"><i class="fas fa-edit"></i> CẬP NHẬT</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="list" class="tab-pane fade in active">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h5><i class="fas fa-list-ul"></i> Bảng lương tháng 12</h5>
+                        </div>
+                    </div>
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-warning">
+                            <tr>
+                                <th rowspan="2">MÃ NV</th>
+                                <th rowspan="2">HỌ VÀ TÊN</th>
+                                <th rowspan="1" colspan="3">THU NHẬP</th>
+                            </tr>
+                            <tr>
+                                <th>LƯƠNG</th>
+                                <th>THƯỞNG</th>
+                                <th>PHỤ CẤP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>NV100</td>
+                                <td>Nguyễn Công Phượng</td>
+                                <td>50 000 000</td>
+                                <td>500 000</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>NV102</td>
+                                <td>Nguyễn Văn Tài Em</td>
+                                <td>90 000 000</td>
+                                <td>600 000</td>
+                                <td>100 000</td>
+                            </tr>
+                            <tr>
+                                <td>NV103</td>
+                                <td>Lê Huỳnh Đức</td>
+                                <td>70 000 000</td>
+                                <td>300 000</td>
+                                <td>200 000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="panel-footer">
+                        Lương của cầu thủ và huấn luyện viên chuyên nghiệp
+                    </div>
+                </div>
+            </div>
+            <div id="update" class="tab-pane fade">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5><i class="fas fa-edit"></i> Nhập lương tháng 12</h5>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Mã nhân viên:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Họ và tên:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Câu lạc bộ:</label>
+                                    <select class="form-control">
+                                        <option>Đà Nẵng</option>
+                                        <option>Hà Nội</option>
+                                        <option>Bình Dương</option>
+                                        <option>TP HCM</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Lương:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label>Thưởng:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label>Phụ cấp:</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <label>Ghi chú:</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <button class="btn btn-default"><i class="fas fa-save"></i> Lưu</button>
+                                    <button class="btn btn-default"><i class="fas fa-square"></i> Hủy</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <span>Vui lòng nhập thông tin cầu thủ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
