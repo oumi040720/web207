@@ -24,26 +24,6 @@ header {
     letter-spacing: 0.5px;
 }
 
-nav li a {
-    color: gray;
-}
-
-.nav>li:hover>a {
-    color: white;
-}
-
-.dropdown-menu li .dropdown-item {
-    color: black;
-}
-
-.dropdown-menu li:hover .dropdown-item {
-    color: gray;
-}
-
-nav.navbar {
-    border-radius: 5px;
-}
-
 .poly-cart {
     margin-top: 5px;
 }
@@ -61,13 +41,14 @@ nav.navbar {
     text-shadow: 0 0 2px darkgray;
 }
 
+/* 
 .poly-cart .panel-default {
     border: 1px solid gray;
     border-radius: 5px;
     text-align: center;
     padding: 15px;
     margin: 20px 0;
-}
+} */
 
 .list-group {
     text-align: left;

@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Shopping Mall</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
@@ -26,52 +24,54 @@
             </div>
             <img width="100%" src="images/header-object.png" class="pull-right">
         </header>
-        <nav class="row navbar navbar-expand-sm bg-dark navbar-dark">
-            <div class="col-sm-9">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href=""><i class="fas fa-home"></i> Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href=""><i class="fas fa-bars"></i> Giới thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href=""><i class="fas fa-phone"></i> Liên hệ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href=""><i class="fas fa-envelope-open-text"></i> Góp ý</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href=""><i class="fab fa-whatsapp-square"></i> Hỏi đáp</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
-                            <i class="fas fa-user"></i> Tài khoản
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Đăng nhập</a>
-                            <a class="dropdown-item" href="#">Quên mật khẩu</a>
-                            <a class="dropdown-item" href="#">Đăng ký thành viên</a>
-                            <br>
-                            <a class="dropdown-item" href="#">Đăng xuất</a>
-                            <a class="dropdown-item" href="#">Đổi mật khẩu</a>
-                            <a class="dropdown-item" href="#">Cập nhật hồ sơ</a>
-                            <br>
-                            <a class="dropdown-item" href="#">Đơn hàng</a>
-                            <a class="dropdown-item" href="#">Hàng đã mua</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="">English</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Tiếng Việt</a>
-                    </li>
-                </ul>
+        <nav class="row navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="col-sm-9">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><i class="fas fa-home"></i> Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><i class="fas fa-bars"></i> Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><i class="fas fa-phone"></i> Liên hệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><i class="fas fa-envelope-open-text"></i> Góp ý</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><i class="fab fa-whatsapp-square"></i> Hỏi đáp</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
+                                <i class="fas fa-user"></i> Tài khoản
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Đăng nhập</a>
+                                <a class="dropdown-item" href="#">Quên mật khẩu</a>
+                                <a class="dropdown-item" href="#">Đăng ký thành viên</a>
+                                <br>
+                                <a class="dropdown-item" href="#">Đăng xuất</a>
+                                <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                                <a class="dropdown-item" href="#">Cập nhật hồ sơ</a>
+                                <br>
+                                <a class="dropdown-item" href="#">Đơn hàng</a>
+                                <a class="dropdown-item" href="#">Hàng đã mua</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="">English</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Tiếng Việt</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <div class="row">
@@ -93,7 +93,7 @@
                     </div>
                     <div class="col-sm-4 poly-prod">
                         <div class="panel panel-default">
-                            <div class="panel panel-heading">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">Nokia</h4>
                             </div>
                             <div class="panel-body">
@@ -106,7 +106,7 @@
                     </div>
                     <div class="col-sm-4 poly-prod">
                         <div class="panel panel-default">
-                            <div class="panel panel-heading">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">Nokia</h4>
                             </div>
                             <div class="panel-body">
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-sm-4 poly-prod">
                         <div class="panel panel-default">
-                            <div class="panel panel-heading">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">Nokia</h4>
                             </div>
                             <div class="panel-body">
@@ -132,7 +132,7 @@
                     </div>
                     <div class="col-sm-4 poly-prod">
                         <div class="panel panel-default">
-                            <div class="panel panel-heading">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">Nokia</h4>
                             </div>
                             <div class="panel-body">
@@ -145,7 +145,7 @@
                     </div>
                     <div class="col-sm-4 poly-prod">
                         <div class="panel panel-default">
-                            <div class="panel panel-heading">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">Nokia</h4>
                             </div>
                             <div class="panel-body">
@@ -158,7 +158,7 @@
                     </div>
                     <div class="col-sm-4 poly-prod">
                         <div class="panel panel-default">
-                            <div class="panel panel-heading">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">Nokia</h4>
                             </div>
                             <div class="panel-body">
@@ -171,7 +171,7 @@
                     </div>
                     <div class="col-sm-4 poly-prod">
                         <div class="panel panel-default">
-                            <div class="panel panel-heading">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">Nokia</h4>
                             </div>
                             <div class="panel-body">
@@ -184,7 +184,7 @@
                     </div>
                     <div class="col-sm-4 poly-prod">
                         <div class="panel panel-default">
-                            <div class="panel panel-heading">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">Nokia</h4>
                             </div>
                             <div class="panel-body">
