@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 01</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label>Chiều dài:</label>
+                    <input ng-model="d" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Chiều rộng:</label>
+                    <input ng-model="r" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Diện tích:</label>
+                    <div ng-bind="acreage" class="form-control"></div>
+                </div>
+                <div class="form-group">
+                    <label>Chu vi:</label>
+                    <div ng-bind="perimeter" class="form-control"></div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click="calculate()">Tính</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            var app = angular.module("myapp", []);
+            app.controller("myctrl", function ($scope) {
+                $scope.calculate = function () {
+                    var r = parseFloat($scope.r);
+                    var d = parseFloat($scope.d);
+
+                    $scope.acreage = r * d;
+                    $scope.perimeter = (r + d) * 2;
+                }
+            })
+        </script>
+    </div>
+</body>
+
+</html>

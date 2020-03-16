@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 01</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label>Họ và tên:</label>
+                    <input ng-model="student.fullname" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Điểm:</label>
+                    <input ng-model="student.mark" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Học lực:</label>
+                    <div ng-bind="student.grade" class="form-control alert-info"></div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click="save()">grade</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            var app = angular.module("myapp", []);
+            app.controller("myctrl", function ($scope) {
+                $scope.save = function () {
+                    var a = parseFloat($scope.student.mark);
+                    if (a < 5) {
+                        $scope.student.grade = "Rớt";
+                    } else {
+                        $scope.student.grade = "Đậu";
+                    }
+                }
+            })
+        </script>
+    </div>
+</body>
+
+</html>

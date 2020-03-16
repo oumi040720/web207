@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 01</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <table class="table table-bordered table-condensed">
+            <tr>
+                <th>Hình</th>
+                <th>Họ và tên</th>
+                <th>Ngày sinh</th>
+                <th>Giới tính</th>
+                <th>Điểm</th>
+            </tr>
+            <tr>
+                <td><img width="60px" src="images/{{ students[0].photo }}"></td>
+                <td>{{ students[0].fullname }}</td>
+                <td>{{ students[0].birthday }}</td>
+                <td>{{ students[0].gender }}</td>
+                <td>{{ students[0].mark }}</td>
+            </tr>
+            <tr>
+                <td><img width="60px" src="images/{{ students[1].photo }}"></td>
+                <td>{{ students[1].fullname }}</td>
+                <td>{{ students[1].birthday }}</td>
+                <td>{{ students[1].gender }}</td>
+                <td>{{ students[1].mark }}</td>
+            </tr>
+            <tr>
+                <td><img width="60px" src="images/{{ students[2].photo }}"></td>
+                <td>{{ students[2].fullname }}</td>
+                <td>{{ students[2].birthday }}</td>
+                <td>{{ students[2].gender }}</td>
+                <td>{{ students[2].mark }}</td>
+            </tr>
+        </table>
+        <script>
+            var app = angular.module("myapp", []);
+            app.controller("myctrl", function ($scope) {
+                $scope.students = [
+                    {
+                        fullname: "Nguyễn Văn Tèo",
+                        birthday: "20-01-1995",
+                        gender: "Nam",
+                        photo: "h1.jpg",
+                        mark: 8.5,
+                    },
+                    {
+                        fullname: "Phạm Thị Nở",
+                        birthday: "11-12-1995",
+                        gender: "Nữ",
+                        photo: "h2.jpg",
+                        mark: 5.5,
+                    },
+                    {
+                        fullname: "Trần Ngọc Quang",
+                        birthday: "31-12-1995",
+                        gender: "Nam",
+                        photo: "h3.jpg",
+                        mark: 7,
+                    }
+                ]
+            })
+        </script>
+    </div>
+</body>
+
+</html>
