@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 03</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+    <br>
+    <div class="container">
+        <div ng-controller="myctrl">
+            <form>
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" ng-model="student.fullname" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Ngày sinh</label>
+                    <input type="text" ng-model="student.birthday" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Điểm</label>
+                    <input type="number" ng-model="student.mark" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click="insert()">Thêm</button>
+                    <button class="btn btn-info" ng-click="update()">sửa</button>
+                    <button class="btn btn-danger" ng-click="delete()">Xóa</button>
+                    <button class="btn btn-warning" ng-click="cancel()">Hủy</button>
+                    <button class="btn btn-success" ng-click="clear()">Mới</button>
+                </div>
+            </form>
+            <table class="table">
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Điểm</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="student in students">
+                    <td>{{ student.fullname }}</td>
+                    <td>{{ student.birthday }}</td>
+                    <td>{{ student.mark }}</td>
+                    <td><a href="#" ng-click="edit($index)">Sửa</a></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <script>
+            var app = angular.module("myapp", []);
+            app.controller("myctrl", function ($scope) {
+                $scope.students = [];
+                $scope.student = {};
+                $scope.index = -1;
+
+                $scope.clear = function () {
+                    $scope.student = {};
+                    $scope.index = -1;
+                }
+
+                $scope.insert = function () {
+                    $scope.students.push(angular.copy($scope.student));
+                    $scope.clear();
+                }
+
+                $scope.update = function () {
+                    $scope.students[$scope.index] = angular.copy($scope.student);
+                }
+
+                $scope.delete = function () {
+                    $scope.students.splice($scope.index, 1);
+                    $scope.clear();
+                }
+
+                $scope.cancel = function () {
+                    if ($scope.index == -1) {
+                        $scope.clear();
+                    } else {
+                        $scope.edit($scope.index);
+                    }
+                }
+
+                $scope.edit = function (index) {
+                    $scope.index = index;
+                    $scope.student = angular.copy($scope.students[index]);
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
