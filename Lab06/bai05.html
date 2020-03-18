@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bài 05</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-app="myapp" ng-controller="myctrl">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">CUSTOM VALIDATION</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <form name="formNumber">
+                <div class="form-group">
+                    <label>SỐ POLY</label>
+                    <input type="number" class="form-control" name="number" ng-model="number" poly-number>
+                    <span ng-show="formNumber.number.$invalid">Số này không chia hết cho 2 và 9</span>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.directive('polyNumber', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, element, attr, mCtrl) {
+                    function myValidation(value) {
+                        if (parseInt(value) % 2 == 0 && parseInt(value) % 9 == 0) {
+                            mCtrl.$setValidity('charE', true);
+                        } else {
+                            mCtrl.$setValidity('charE', false);
+                        }
+                        return value;
+                    }
+                    mCtrl.$parsers.push(myValidation);
+                }
+            };
+        });
+        app.controller("myctrl", function ($scope) {
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bài 04</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-app="myapp" ng-controller="myctrl">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">THÔNG TIN SINH VIÊN</h4>
+            </div>
+            <div class="card-body">
+                <form name="formInfo" class="was-validated">
+                    <div class="form-group">
+                        <label><strong>Họ và tên</strong></label>
+                        <input type="text" name="fullname" ng-model="fullname" class="form-control" maxlength="25"
+                            required />
+                        <span ng-show="formInfo.fullname.$invalid" class="text-danger">
+                            Không được để trống họ và tên
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Điểm</strong></label>
+                        <input type="number" name="mark" ng-model="mark" class="form-control" min="0" max="10" required>
+                        <span ng-show="formInfo.mark.$invalid" class="text-danger">
+                            Không được để trống điểm và điểm phải trong khoảng từ 0 đến 10
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Email</strong></label>
+                        <input type="email" name="email" ng-model="email" class="form-control" required>
+                        <span ng-show="formInfo.email.$invalid" class="text-danger">
+                            Không được để trống và nhập đúng định dạng email
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Số xe</strong></label>
+                        <input type="text" name="numberPlate" ng-model="numberPlate" class="form-control"
+                            pattern="5\d-[A-Z]\d-((\d{4})|(\d{3}\.\d{2}))" required>
+                        <span ng-show="formInfo.numberPlate.$invalid" class="text-danger">
+                            Không được để trống và nhập đúng định dạng biển số xe
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <span>
+                            <button class="btn btn-success">Lưu</button>
+                        </span>
+                        <span ng-show="formInfo.$valid">BẠN ĐÃ NHẬP ĐÚNG</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function ($scope) {
+
+        })
+    </script>
+</body>
+
+</html>
