@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 03</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-app="myapp">
+        <div ng-controller="myctrl">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">DANH SÁCH HÀNG HÓA</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th>SẢN PHẨM</th>
+                            <th>ĐƠN GIÁ</th>
+                            <th>GIẢM GIÁ</th>
+                            <th>NGÀY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in products | orderBy: '-price' | limitTo: 8 : 16">
+                            <td>{{ product.name | uppercase}}</td>
+                            <td>{{ product.price | currency}}</td>
+                            <td>{{ product.discount | percentage}}</td>
+                            <td>{{ product.date | date: "MMMM-dd, yyyy" }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/prods.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+
+        app.controller("myctrl", function ($scope, $http) {
+            $scope.products = list;
+        });
+
+        app.filter("percentage", function ($filter) {
+            return function (input, decimals) {
+                return $filter("number")(input * 100, decimals) + "%";
+            }
+        })
+    </script>
+</body>
+
+</html>

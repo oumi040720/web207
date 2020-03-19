@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 04</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-app="myapp">
+        <div ng-controller="myctrl">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">DANH SÁCH HÀNG HÓA</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a href="#" ng-click="sortBy('name')">SẢN PHẨM</a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortBy('price')">ĐƠN GIÁ</a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortBy('discount')">GIẢM GIÁ</a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortBy('date')">NGÀY</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in products | orderBy: prop | limitTo: 5 : begin">
+                            <td>{{ product.name | uppercase}}</td>
+                            <td>{{ product.price | currency}}</td>
+                            <td>{{ product.discount | percentage}}</td>
+                            <td>{{ product.date | date: "MMMM-dd, yyyy" }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul class="nav pager">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" ng-click="first()">
+                            First
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" ng-click="prev()">
+                            Prev
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" ng-click="next()">
+                            Next
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" ng-click="next()">
+                            Last
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/prods.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+
+        app.controller("myctrl", function ($scope, $http) {
+            $scope.products = list;
+
+            $scope.prop = "name";
+            $scope.sortBy = function (prop) {
+                $scope.prop = prop;
+            }
+
+            $scope.begin = 0;
+            $scope.page = Math.ceil($scope.products.length / 5);
+
+            $scope.first = function () {
+                $scope.begin = 0;
+            }
+            $scope.prev = function () {
+                if ($scope.begin > 0) {
+                    $scope.begin -= 5;
+                }
+            }
+            $scope.next = function () {
+                if ($scope.begin > ($scope.page - 1) * 5) {
+                    $scope.begin += 8;
+                }
+            }
+            $scope.next = function () {
+                $scope.begin = ($scope.page - 1) * 5;
+            }
+        });
+
+        app.filter("percentage", function ($filter) {
+            return function (input, decimals) {
+                return $filter("number")(input * 100, decimals) + "%";
+            }
+        })
+    </script>
+</body>
+
+</html>
