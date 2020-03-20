@@ -79,32 +79,32 @@
             $scope.products = [];
             $http.get("js/prods2.js").then(function (response) {
                 $scope.products = response.data;
-            })
 
-            $scope.prop = "name";
-            $scope.sortBy = function (prop) {
-                $scope.prop = prop;
-            }
+                $scope.prop = "name";
+                $scope.sortBy = function (prop) {
+                    $scope.prop = prop;
+                }
 
-            $scope.begin = 0;
-            $scope.page = Math.ceil($scope.products.length / 5);
-
-            $scope.first = function () {
                 $scope.begin = 0;
-            }
-            $scope.prev = function () {
-                if ($scope.begin > 0) {
-                    $scope.begin -= 5;
+                $scope.page = Math.ceil($scope.products.length / 5);
+
+                $scope.first = function () {
+                    $scope.begin = 0;
                 }
-            }
-            $scope.next = function () {
-                if ($scope.begin < (($scope.page - 1) * 5)) {
-                    $scope.begin += 5;
+                $scope.prev = function () {
+                    if ($scope.begin > 0) {
+                        $scope.begin -= 5;
+                    }
                 }
-            }
-            $scope.last = function () {
-                $scope.begin = ($scope.page - 1) * 5;
-            }
+                $scope.next = function () {
+                    if ($scope.begin < (($scope.page - 1) * 5)) {
+                        $scope.begin += 5;
+                    }
+                }
+                $scope.last = function () {
+                    $scope.begin = ($scope.page - 1) * 5;
+                }
+            })
         });
 
         app.filter("percentage", function ($filter) {
