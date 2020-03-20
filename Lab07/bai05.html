@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" ng-click="next()">
+                        <a href="#" class="nav-link" ng-click="last()">
                             Last
                         </a>
                     </li>
@@ -98,11 +98,11 @@
                 }
             }
             $scope.next = function () {
-                if ($scope.begin > ($scope.page - 1) * 5) {
-                    $scope.begin += 8;
+                if ($scope.begin < (($scope.page - 1) * 5)) {
+                    $scope.begin += 5;
                 }
             }
-            $scope.next = function () {
+            $scope.last = function () {
                 $scope.begin = ($scope.page - 1) * 5;
             }
         });
