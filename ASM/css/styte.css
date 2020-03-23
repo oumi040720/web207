@@ -1,0 +1,13 @@
+header {
+    position: relative;
+}
+
+aside.col-sm-3 {
+    padding: 0;
+    margin: 0;
+}
+
+aside.col-sm-3 .card-body {
+    padding: 0;
+    margin: 0;
+}
