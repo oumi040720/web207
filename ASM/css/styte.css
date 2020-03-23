@@ -11,3 +11,13 @@ aside.col-sm-3 .card-body {
     padding: 0;
     margin: 0;
 }
+
+.list-group-item {
+    color: black;
+}
+
+.dropdown-item:hover, .list-group-item:hover {
+    background-color: #696969;
+    color: white;
+    text-decoration: none;
+}
