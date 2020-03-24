@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+
+    <!--  Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!--  Angular -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    -->
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/styte.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="row">
+            <img src="./images/banner.png" width="100%" alt="banner">
+        </header>
+
+        <nav class="row navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">FPT Polytechnic</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav col-sm-10">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Giới thiệu
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Góp ý</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hỏi đáp</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav col-sm-2 float-right">
+                    <li class="nav-item dropdown float-right col-sm-12">
+                        <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                            <i class="fas fa-user"></i> Tài khoản
+                        </a>
+
+                        <div class="modal fade" id="loginModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Đăng nhập</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <br>
+                                            <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                    <label>Tài khoản:</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                    <label>Mật khẩu:</label>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="password" class="form-control">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group row">
+                                                <div class="col-sm-3"></div>
+                                                <div class="col-sm-9">
+                                                    <div>
+                                                        <button type="submit" class="btn btn-outline-primary">
+                                                            Đăng nhập
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-dismiss="modal">
+                                                            Đóng
+                                                        </button>
+                                                        <button type="button" class="btn btn-light">
+                                                            Quên mật khẩu?
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <hr>
+                                            </div>
+                                            <div class="col-sm-2 text-center">
+                                                <span>Hoặc</span>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <hr>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-outline-info" data-toggle="modal"
+                                                data-target="#registerModal" data-dismiss="modal">
+                                                Tạo tài khoản
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="registerModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Đăng Ký</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <br>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Tài khoản">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Mật khẩu">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control"
+                                                    placeholder="Xác nhận mật khẩu">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Họ và tên">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option value="">Giới tính</option>
+                                                    <option value="male">Nam</option>
+                                                    <option value="female">Nữ</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Ngày sinh">
+                                            </div><br>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-outline-info">
+                                                    Tạo tài khoản
+                                                </button>
+                                                <button type="button" class="btn btn-light" data-dismiss="modal"
+                                                    data-toggle="modal" data-target="#loginModal">
+                                                    Đăng nhập
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a type="button" class="dropdown-item" data-toggle="modal" data-target="#registerModal">
+                                Đăng ký
+                            </a>
+                            <a type="button" class="dropdown-item" data-toggle="modal" data-target="#loginModal">
+                                Đăng nhập
+                            </a>
+                            <a class="dropdown-item" href="#">Quên mật khẩu</a>
+                            <hr>
+                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                            <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="#">Cập nhật tài khoản</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="row">
+            <article class="col-sm-9">
+                <!--Nội dung trang web-->
+            </article>
+
+            <aside class="col-sm-3">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-list-ul"></i> <strong>Danh mục</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">Kiểm thử và triển khai dự án</a>
+                            <a href="#" class="list-group-item">SQL Server</a>
+                            <a href="#" class="list-group-item">Điện toán đám mây</a>
+                            <a href="#" class="list-group-item">Lập trình PHP</a>
+                            <a href="#" class="list-group-item">Lập trình Android cơ bản</a>
+                            <a href="#" class="list-group-item">Lập trình Android nâng cao</a>
+                            <a href="#" class="list-group-item">Thiết kế layout</a>
+                            <a href="#" class="list-group-item">Thiếu kế giao diện Android</a>
+                            <a href="#" class="list-group-item">Quản lý dự án với Agile</a>
+                            <a href="#" class="list-group-item">Internet marketing</a>
+                            <a href="#" class="list-group-item">Lập trình hướng đối tượng Java</a>
+                            <a href="#" class="list-group-item">Lập trình ASP.NET</a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="row">
+            <div class="text-center col-sm-12">
+                <br><br><br><br>
+                <p>FPT Polytechnic &copy; 2020. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
