@@ -71,35 +71,30 @@
                                     <div class="modal-body">
                                         <form>
                                             <br>
-                                            <div class="form-group row">
-                                                <div class="col-sm-3">
-                                                    <label>Tài khoản:</label>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control">
-                                                </div>
+                                            <div class="form-group">
+                                                <label for="username">Tài khoản</label>
+                                                <input type="text" id="username" class="form-control"
+                                                    placeholder="Tài khoản">
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-3">
-                                                    <label>Mật khẩu:</label>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <input type="password" class="form-control">
-                                                </div>
+                                            <div class="form-group">
+                                                <label for="password">Mật khẩu</label>
+                                                <input type="password" id="password" class="form-control"
+                                                    placeholder="Mật khẩu">
                                             </div>
                                             <br>
                                             <div class="form-group row">
-                                                <div class="col-sm-3"></div>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-12">
                                                     <div>
-                                                        <button type="submit" class="btn btn-outline-primary">
+                                                        <button type="submit" class="btn btn-outline-primary btn-block">
                                                             Đăng nhập
                                                         </button>
-                                                        <button type="button" class="btn btn-danger"
+                                                        <button type="button" class="btn btn-danger btn-block"
                                                             data-dismiss="modal">
                                                             Đóng
                                                         </button>
-                                                        <button type="button" class="btn btn-light">
+                                                        <button type="button" class="btn btn-light btn-block"
+                                                            data-dismiss="modal" data-toggle="modal"
+                                                            data-target="#changeModal">
                                                             Quên mật khẩu?
                                                         </button>
                                                     </div>
@@ -119,8 +114,8 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button type="button" class="btn btn-outline-info" data-toggle="modal"
-                                                data-target="#registerModal" data-dismiss="modal">
+                                            <button type="button" class="btn btn-outline-info btn-block"
+                                                data-toggle="modal" data-target="#registerModal" data-dismiss="modal">
                                                 Tạo tài khoản
                                             </button>
                                         </div>
@@ -166,12 +161,135 @@
                                                 <input type="text" class="form-control" placeholder="Ngày sinh">
                                             </div><br>
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-outline-info">
+                                                <button type="submit" class="btn btn-outline-info btn-block">
                                                     Tạo tài khoản
                                                 </button>
-                                                <button type="button" class="btn btn-light" data-dismiss="modal"
-                                                    data-toggle="modal" data-target="#loginModal">
+                                                <button type="button" class="btn btn-light btn-block"
+                                                    data-dismiss="modal" data-toggle="modal" data-target="#loginModal">
                                                     Đăng nhập
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="changeModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Thay đổi mật khẩu</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <br>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Tài khoản">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Mật khẩu">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Mật khẩu mới">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control"
+                                                    placeholder="Xác nhận mật khẩu mới">
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-outline-warning btn-block">
+                                                    Đổi mật khẩu
+                                                </button>
+                                                <button type="button" class="btn btn-light btn-block"
+                                                    data-dismiss="modal" data-toggle="modal" data-target="#loginModal">
+                                                    Đăng nhập
+                                                </button>
+                                                <button type="submit" class="btn btn-outline-info btn-block"
+                                                    data-dismiss="modal" data-toggle="modal"
+                                                    data-target="#registerModal">
+                                                    Tạo tài khoản
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="forgotModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Quên mật khẩu</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <br>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Tài khoản">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-outline-danger btn-block">
+                                                    Lấy mật khẩu
+                                                </button>
+                                                <button type="button" class="btn btn-light btn-block"
+                                                    data-dismiss="modal" data-toggle="modal" data-target="#loginModal">
+                                                    Đăng nhập
+                                                </button>
+                                                <button type="submit" class="btn btn-outline-info btn-block"
+                                                    data-dismiss="modal" data-toggle="modal"
+                                                    data-target="#registerModal">
+                                                    Tạo tài khoản
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="updateModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Đăng Ký</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <br>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Tài khoản">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Họ và tên">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option value="">Giới tính</option>
+                                                    <option value="male">Nam</option>
+                                                    <option value="female">Nữ</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Ngày sinh">
+                                            </div><br>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-outline-info btn-block">
+                                                    Cập nhật thông tin
+                                                </button>
+                                                <button type="button" class="btn btn-light btn-block"
+                                                    data-dismiss="modal" data-toggle="modal" data-target="#changeModal">
+                                                    Đổi mật khẩu
                                                 </button>
                                             </div>
                                         </form>
@@ -187,11 +305,17 @@
                             <a type="button" class="dropdown-item" data-toggle="modal" data-target="#loginModal">
                                 Đăng nhập
                             </a>
-                            <a class="dropdown-item" href="#">Quên mật khẩu</a>
+                            <a type="button" class="dropdown-item" data-toggle="modal" data-target="#forgotModal">
+                                Quên mật khẩu
+                            </a>
                             <hr>
                             <a class="dropdown-item" href="#">Đăng xuất</a>
-                            <a class="dropdown-item" href="#">Đổi mật khẩu</a>
-                            <a class="dropdown-item" href="#">Cập nhật tài khoản</a>
+                            <a type="button" class="dropdown-item" data-toggle="modal" data-target="#changeModal">
+                                Đổi mật khẩu
+                            </a>
+                            <a type="button" class="dropdown-item" data-toggle="modal" data-target="#updateModal">
+                                Cập nhật tài khoản
+                            </a>
                         </div>
                     </li>
                 </ul>
