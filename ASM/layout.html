@@ -94,13 +94,13 @@
                                                 <div class="col-sm-12">
                                                     <div>
                                                         <button type="submit" class="btn btn-outline-primary btn-block"
-                                                            ng-click="checkLogin()">
+                                                            ng-disabled="!loginForm.$valid" ng-click="checkLogin()">
                                                             Đăng nhập
-                                                        </button>
+                                                        </button><br>
                                                         <button type="button" class="btn btn-danger btn-block"
                                                             data-dismiss="modal">
                                                             Đóng
-                                                        </button>
+                                                        </button><br>
                                                         <button type="button" class="btn btn-light btn-block"
                                                             data-dismiss="modal" data-toggle="modal"
                                                             data-target="#changeModal">
@@ -133,7 +133,7 @@
                             </div>
                         </div>
 
-                        <div class="modal fade" id="registerModal">
+                        <div class="modal fade" id="registerModal" ng-controller="registerCtrl">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -141,36 +141,77 @@
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
+                                        <form name="registerForm">
                                             <br>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Tài khoản">
+                                                <input type="text" class="form-control" name="username"
+                                                    ng-model="username" placeholder="Tài khoản" required>
+                                                <em class="text-danger"
+                                                    ng-show="registerForm.username.$touched && registerForm.username.$invalid">
+                                                    <small>Không được để trống tên tài khoản</small>
+                                                </em>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control" placeholder="Mật khẩu">
+                                                <input type="password" class="form-control" name="password"
+                                                    ng-model="password" placeholder="Mật khẩu" required>
+                                                <em class="text-danger"
+                                                    ng-show="registerForm.password.$touched && registerForm.password.$invalid">
+                                                    <small>Không được để trống mật khẩu</small>
+                                                </em>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control"
-                                                    placeholder="Xác nhận mật khẩu">
+                                                <input type="password" class="form-control" name="confirmPassword"
+                                                    ng-model="confirmPassword" placeholder="Xác nhận mật khẩu" required>
+                                                <em class="text-danger"
+                                                    ng-show="registerForm.confirmPassword.$touched && registerForm.confirmPassword.$invalid">
+                                                    <small>Không được để trống xác nhận mật khẩu</small>
+                                                </em>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Họ và tên">
+                                                <input type="text" class="form-control" name="fullname"
+                                                    ng-model="fullname" placeholder="Họ và tên" required>
+                                                <em class="text-danger"
+                                                    ng-show="registerForm.fullname.$touched && registerForm.fullname.$invalid">
+                                                    <small>Không được để trống họ và tên</small>
+                                                </em>
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control" placeholder="Email">
+                                                <input type="email" class="form-control" name="email" ng-model="email"
+                                                    placeholder="Email" required>
+                                                <em class="text-danger"
+                                                    ng-show="registerForm.email.$touched && registerForm.email.$error.required">
+                                                    <small>Không được để trống email</small>
+                                                </em>
+                                                <em class="text-danger"
+                                                    ng-show="registerForm.email.$touched && registerForm.email.$error.email">
+                                                    <small>Không đúng định dạng mail</small>
+                                                </em>
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control">
-                                                    <option value="">Giới tính</option>
+                                                <select class="form-control" name="gender" ng-model="gender" required>
                                                     <option value="male">Nam</option>
                                                     <option value="female">Nữ</option>
                                                 </select>
+                                                <em class="text-danger"
+                                                    ng-show="registerForm.gender.$touched && registerForm.gender.$invalid">
+                                                    <small>Không được để trống giới tính</small>
+                                                </em>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Ngày sinh">
+                                                <input type="date" class="form-control" name="birthday"
+                                                    ng-model="birthday" placeholder="Ngày sinh" required>
+                                                <em class="text-danger"
+                                                    ng-show="registerForm.birthday.$touched && registerForm.birthday.$error.required">
+                                                    <small>Không được để trống ngày sinh</small>
+                                                </em>
+                                                <em class="text-danger"
+                                                    ng-show="registerForm.birthday.$touched && registerForm.birthday.$error.date">
+                                                    <small>Không đúng định dạng ngày MM/dd/yyyy</small>
+                                                </em>
                                             </div><br>
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-outline-info btn-block">
+                                                <button type="submit" class="btn btn-outline-info btn-block"
+                                                    ng-disabled="!registerForm.$valid">
                                                     Tạo tài khoản
                                                 </button>
                                                 <button type="button" class="btn btn-light btn-block"
@@ -391,6 +432,8 @@
                     alert($scope.check)
                 }
             });
+        });
+        app.controller("registerCtrl", function ($scope) {
         });
     </script>
 </body>
