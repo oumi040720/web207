@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="text-center">
+            <h3>Đăng ký tài khoản</h3>
+        </div>
+        <form action="/" name="registerForm">
+            <br>
+            <div class="md-form">
+                <input type="text" name="username" ng-model="username" class="form-control" required>
+                <label>Tên tài khoản</label>
+                <em class="text-danger" ng-show="registerForm.username.$touched && registerForm.username.$invalid">
+                    <small>Không được để trống tên tài khoản</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="password" class="form-control" name="password" ng-model="password" required>
+                <label>Mật khẩu</label>
+                <em class="text-danger" ng-show="registerForm.password.$touched && registerForm.password.$invalid">
+                    <small>Không được để trống mật khẩu</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="password" class="form-control" name="confirmPassword" ng-model="confirmPassword" required>
+                <label>Xác nhận mật khẩu</label>
+                <em class="text-danger"
+                    ng-show="registerForm.confirmPassword.$touched && registerForm.confirmPassword.$invalid">
+                    <small>Không được để trống xác nhận mật khẩu</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="text" class="form-control" name="fullname" ng-model="fullname" required>
+                <label>Họ và tên</label>
+                <em class="text-danger" ng-show="registerForm.fullname.$touched && registerForm.fullname.$invalid">
+                    <small>Không được để trống họ và tên</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="email" class="form-control" name="email" ng-model="email" required>
+                <label>Email</label>
+                <em class="text-danger" ng-show="registerForm.email.$touched && registerForm.email.$error.required">
+                    <small>Không được để trống email</small>
+                </em>
+                <em class="text-danger" ng-show="registerForm.email.$touched && registerForm.email.$error.email">
+                    <small>Không đúng định dạng mail</small>
+                </em>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="gender" ng-model="gender" required>
+                    <option value="">Giới tính</option>
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                </select>
+                <em class="text-danger" ng-show="registerForm.gender.$touched && registerForm.gender.$invalid">
+                    <small>Không được để trống giới tính</small>
+                </em>
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" name="birthday" ng-model="birthday" placeholder="Ngày sinh"
+                    required>
+                <em class="text-danger"
+                    ng-show="registerForm.birthday.$touched && registerForm.birthday.$error.required">
+                    <small>Không được để trống ngày sinh</small>
+                </em>
+                <em class="text-danger" ng-show="registerForm.birthday.$touched && registerForm.birthday.$error.date">
+                    <small>Không đúng định dạng ngày MM/dd/yyyy</small>
+                </em>
+            </div><br>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-info btn-block" ng-disabled="!registerForm.$valid">
+                    Tạo tài khoản
+                </button>
+                <a href="#!login" class="btn btn-danger btn-block">
+                    Đăng nhập
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

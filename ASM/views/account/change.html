@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="text-center">
+            <h3>Đổi mật khẩu</h3>
+        </div>
+        <form name="changeForm">
+            <div class="md-form">
+                <input type="password" class="form-control" name="password" ng-model="password" required>
+                <label>Mật khẩu cũ</label>
+                <em class="text-danger" ng-show="changeForm.password.$touched && changeForm.password.$invalid">
+                    <small>Không được để trống mật khẩu</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="password" class="form-control" name="newPassword" ng-model="newPassword" required>
+                <label>Mật khẩu mới</label>
+                <em class="text-danger" ng-show="changeForm.newPassword.$touched && changeForm.newPassword.$invalid">
+                    <small>Không được để trống mật khẩu mới</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="password" class="form-control" name="confirmNewPassword" ng-model="confirmNewPassword"
+                    required>
+                <label>Xác nhận mật khẩu mới</label>
+                <em class="text-danger"
+                    ng-show="changeForm.confirmNewPassword.$touched && changeForm.confirmNewPassword.$invalid">
+                    <small>Không được để trống xác nhận mật khẩu mới</small>
+                </em>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block" ng-disabled="!changeForm.$valid">
+                    Đổi mật khẩu
+                </button>
+                <a href="#!login" class="btn btn-danger btn-block">
+                    Đăng nhập
+                </a>
+                <a href="#!register" class="btn btn-outline-info btn-block">
+                    Tạo tài khoản
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
