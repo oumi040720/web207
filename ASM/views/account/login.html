@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row" ng-controller="loginCtrl">
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
         <div class="text-center">
             <h3>Đăng nhập</h3>
         </div>
-        <form action="/" name="loginForm">
+        <form name="loginForm">
             <br>
             <div class="md-form">
                 <input type="text" name="username" ng-model="username" class="form-control" required>
@@ -20,7 +20,18 @@
                     <small>Không được để trống mật khẩu</small>
                 </em>
             </div>
-            <div class="text-danger">{{ resultLogin }}</div>
+            <div ng-if="notLogin.length > 0">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ notLogin }}
+                </div>
+            </div>
+            <div ng-if="resultLogin.length > 0">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ resultLogin }}
+                </div>
+            </div>
             <br>
             <div class="form-group row">
                 <div class="col-sm-12">
