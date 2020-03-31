@@ -6,15 +6,18 @@
         </div>
         <form name="updateForm">
             <div class="md-form">
-                <input type="text" class="form-control" name="fullname" ng-model="fullname" required>
-                <label>Họ và tên</label>
-                <em class="text-danger" ng-show="updateForm.fullname.$touched && updateForm.fullname.$error.required">
+                <input type="text" class="form-control" disabled ng-model="USER.username">
+            </div>
+            <div class="md-form">
+                <input type="text" class="form-control" name="fullname" ng-model="USER.fullname" required>
+                <label class="active">Họ và tên</label>
+                <em class=" text-danger" ng-show="updateForm.fullname.$touched && updateForm.fullname.$error.required">
                     <small>Không được để trống họ và tên</small>
                 </em>
             </div>
             <div class="md-form">
-                <input type="email" class="form-control" name="email" ng-model="email" required>
-                <label>Email</label>
+                <input type="email" class="form-control" name="email" ng-model="USER.email" required>
+                <label class="active">Email</label>
                 <em class="text-danger" ng-show="updateForm.email.$touched && updateForm.email.$error.required">
                     <small>Không được để trống email</small>
                 </em>
@@ -23,17 +26,17 @@
                 </em>
             </div>
             <div class="form-group">
-                <select class="form-control" name="gender" ng-model="gender" required>
+                <select class="form-control" name="gender" ng-model="USER.gender" required>
                     <option value="" disabled>Giới tính</option>
-                    <option value="male">Nam</option>
-                    <option value="female">Nữ</option>
+                    <option value="true">Nam</option>
+                    <option value="false">Nữ</option>
                 </select>
                 <em class="text-danger" ng-show="updateForm.gender.$touched && updateForm.gender.$error.required">
                     <small>Không được để trống giới tính</small>
                 </em>
             </div>
             <div class="form-group">
-                <input type="date" class="form-control" name="birthday" ng-model="birthday" placeholder="Ngày sinh"
+                <input type="date" class="form-control" name="birthday" ng-model="USER.birthday | date:'MM/dd/yyyy"
                     required>
                 <em class="text-danger" ng-show="updateForm.birthday.$touched && updateForm.birthday.$error.required">
                     <small>Không được để trống ngày sinh</small>

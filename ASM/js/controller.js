@@ -24,19 +24,29 @@ app.config(function ($routeProvider) {
             templateUrl: "views/account/forgot.html"
         })
         .when("/update", {
+            resolve: {
+                "check": function ($rootScope, $location) {
+                    if (!$rootScope.loggedIn) {
+                        $rootScope.notLogin = "Bạn chưa đăng nhập!"
+                        $location.path("/login");
+                    }
+                }
+            },
             templateUrl: "views/account/update.html"
         })
         .when("/change", {
             templateUrl: "views/account/change.html"
+        })
+        .when("/logout", {
+            redirectTo: "/login"
         })
         .otherwise({
             redirectTo: "/home"
         })
 })
 
-app.controller("myctrl", function ($rootScope, $scope, $location) {
-    $scope.logout = function ($rootScope, $location) {
-        $scope.loggedIn = false
-        $scope.USER = {}
-    }
+app.controller("myctrl", function ($rootScope, $scope, $http, $location) {
+    $http.get("db/Subjects.js").then(function (response) {
+        $scope.subjects = response.data;
+    })
 })

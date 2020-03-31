@@ -1,7 +1,7 @@
 ﻿[
     {
         "username": "teonv",
-        "password": "iloveyou",
+        "password": "123",
         "fullname": "Nguyễn Văn Tèo",
         "email": "teonv@fpt.edu.vn",
         "gender": "true",

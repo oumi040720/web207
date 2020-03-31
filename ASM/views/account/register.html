@@ -48,8 +48,8 @@
             <div class="form-group">
                 <select class="form-control" name="gender" ng-model="gender" required>
                     <option disabled value="">Giới tính</option>
-                    <option value="male">Nam</option>
-                    <option value="female">Nữ</option>
+                    <option value="true">Nam</option>
+                    <option value="false">Nữ</option>
                 </select>
                 <em class="text-danger" ng-show="registerForm.gender.$touched && registerForm.gender.$invalid">
                     <small>Không được để trống giới tính</small>
@@ -65,8 +65,18 @@
                     <small>Không đúng định dạng ngày MM/dd/yyyy</small>
                 </em>
             </div><br>
+            <div>
+                <p>Output Message : {{msg}}</p>
+
+                <p>StatusCode: {{statusval}}</p>
+
+                <p>Status: {{statustext}}</p>
+
+                <p>Response Headers: {{headers}}</p>
+            </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-outline-info btn-block" ng-disabled="!registerForm.$valid">
+                <button type="submit" class="btn btn-outline-info btn-block" ng-disabled="!registerForm.$valid"
+                    ng-click="register()">
                     Tạo tài khoản
                 </button>
                 <a href="#!login" class="btn btn-danger btn-block">

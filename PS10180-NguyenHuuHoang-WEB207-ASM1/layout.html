@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS10180 - Nguyễn Hữu Hoàng</title>
+
+    <!--  Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!--  Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/styte.css">
+    <link href="vendor/css/mdb.min.css" rel="stylesheet">
+    <link href="vendor/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" ng-app="myapp" ng-controller="myctrl">
+        <header class="row">
+            <img src="./images/banner.png" width="100%" alt="banner">
+        </header>
+
+        <nav class="row navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="#!home">FPT Polytechnic</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav col-sm-9">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Giới thiệu
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Góp ý</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hỏi đáp</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav col-sm-3 float-left">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                            <i class="fas fa-user"></i> Tài khoản
+                            <!-- <span ng-if="loggedIn">
+                                {{ USER.username }}
+                            </span>
+                            <span ng-if="!loggedIn">
+                                <i class="fas fa-user"></i> Tài khoản
+                            </span> -->
+                        </a>
+                        <div class="dropdown-menu">
+                            <!-- <div ng-if="loggedIn">
+                                <a class="dropdown-item" ng-click="logout()">Đăng xuất</a>
+                                <a type="button" class="dropdown-item" href="#!change">
+                                    Đổi mật khẩu
+                                </a>
+                                <a type="button" class="dropdown-item" href="#!update">
+                                    Cập nhật tài khoản
+                                </a>
+                            </div>
+                            <div ng-if="!loggedIn">
+                                <a type="button" class="dropdown-item" href="#!register">
+                                    Đăng ký
+                                </a>
+                                <a type="button" class="dropdown-item" href="#!login">
+                                    Đăng nhập
+                                </a>
+                                <a type="button" class="dropdown-item" href="#!forgot">
+                                    Quên mật khẩu
+                                </a>
+                            </div> -->
+                            <a type="button" class="dropdown-item" href="#!register">
+                                Đăng ký
+                            </a>
+                            <a type="button" class="dropdown-item" href="#!login">
+                                Đăng nhập
+                            </a>
+                            <a type="button" class="dropdown-item" href="#!forgot">
+                                Quên mật khẩu
+                            </a>
+                            <hr>
+                            <a class="dropdown-item" href="#!logout">Đăng xuất</a>
+                            <a type="button" class="dropdown-item" href="#!change">
+                                Đổi mật khẩu
+                            </a>
+                            <a type="button" class="dropdown-item" href="#!update">
+                                Cập nhật tài khoản
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="row" style="padding: 25px 0;">
+            <article class="col-sm-9">
+                <ng-view></ng-view>
+            </article>
+
+            <aside class="col-sm-3">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-list-ul"></i> <strong>Danh mục</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">Kiểm thử và triển khai dự án</a>
+                            <a href="#" class="list-group-item">SQL Server</a>
+                            <a href="#" class="list-group-item">Điện toán đám mây</a>
+                            <a href="#" class="list-group-item">Lập trình PHP</a>
+                            <a href="#" class="list-group-item">Lập trình Android cơ bản</a>
+                            <a href="#" class="list-group-item">Lập trình Android nâng cao</a>
+                            <a href="#" class="list-group-item">Thiết kế layout</a>
+                            <a href="#" class="list-group-item">Thiếu kế giao diện Android</a>
+                            <a href="#" class="list-group-item">Quản lý dự án với Agile</a>
+                            <a href="#" class="list-group-item">Internet marketing</a>
+                            <a href="#" class="list-group-item">Lập trình hướng đối tượng Java</a>
+                            <a href="#" class="list-group-item">Lập trình ASP.NET</a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="row">
+            <div class="text-center col-sm-12">
+                <br><br><br><br>
+                <p>FPT Polytechnic &copy; 2020. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="vendor/js/mdb.min.js"></script>
+
+    <!-- js -->
+    <!-- <script src="js/controller.js"></script>
+    <script src="js/account/LoginController.js"></script> -->
+</body>
+
+</html>

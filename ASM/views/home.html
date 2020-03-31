@@ -1,6 +1,12 @@
-<h1>home</h1>
-<ul>
-    <li>{{ USER.username }}</li>
-    <li>{{ USER.password }}</li>
-    <li>{{ USER.fullname }}</li>
-</ul>
+<div class="row">
+    <div class="col-sm-6" ng-repeat="subject in subjects">
+        <br>
+        <div class="card text-center">
+            <div class="card-body">
+                <img src="images/logos/{{ subject.Logo }}" alt="{{ subject.Id }}">
+            </div>
+            <div class="card-footer">{{ subject.Name }}</div>
+        </div>
+        <br>
+    </div>
+</div>
