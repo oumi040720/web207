@@ -1,16 +1,20 @@
-<div class="row">
+<div class="row" ng-controller="registerCtrl">
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
         <div class="text-center">
             <h3>Đăng ký tài khoản</h3>
         </div>
-        <form action="/" name="registerForm">
+        <form name="registerForm">
             <br>
             <div class="md-form">
-                <input type="text" name="username" ng-model="username" class="form-control" required>
+                <input type="text" name="username" ng-model="username" class="form-control" required existed>
                 <label>Tên tài khoản</label>
-                <em class="text-danger" ng-show="registerForm.username.$touched && registerForm.username.$invalid">
+                <em class="text-danger"
+                    ng-show="registerForm.username.$touched && registerForm.username.$error.required">
                     <small>Không được để trống tên tài khoản</small>
+                </em>
+                <em class="text-danger" ng-show="registerForm.username.$touched && registerForm.username.$error.charE">
+                    <small>Tên tài khoản đã tồn tại</small>
                 </em>
             </div>
             <div class="md-form">
@@ -21,11 +25,16 @@
                 </em>
             </div>
             <div class="md-form">
-                <input type="password" class="form-control" name="confirmPassword" ng-model="confirmPassword" required>
+                <input type="password" class="form-control" name="confirmPassword" ng-model="confirmPassword" required
+                    confirm>
                 <label>Xác nhận mật khẩu</label>
                 <em class="text-danger"
-                    ng-show="registerForm.confirmPassword.$touched && registerForm.confirmPassword.$invalid">
+                    ng-show="registerForm.confirmPassword.$touched && registerForm.confirmPassword.$error.required">
                     <small>Không được để trống xác nhận mật khẩu</small>
+                </em>
+                <em class="text-danger"
+                    ng-show="registerForm.confirmPassword.$touched && registerForm.confirmPassword.$error.charE">
+                    <small>Xác nhận mật khẩu không chính xác</small>
                 </em>
             </div>
             <div class="md-form">
@@ -65,15 +74,6 @@
                     <small>Không đúng định dạng ngày MM/dd/yyyy</small>
                 </em>
             </div><br>
-            <div>
-                <p>Output Message : {{msg}}</p>
-
-                <p>StatusCode: {{statusval}}</p>
-
-                <p>Status: {{statustext}}</p>
-
-                <p>Response Headers: {{headers}}</p>
-            </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-outline-info btn-block" ng-disabled="!registerForm.$valid"
                     ng-click="register()">

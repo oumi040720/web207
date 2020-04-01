@@ -18,7 +18,8 @@ app.config(function ($routeProvider) {
             controller: "loginCtrl"
         })
         .when("/register", {
-            templateUrl: "views/account/register.html"
+            templateUrl: "views/account/register.html",
+            controller: "registerCtrl"
         })
         .when("/forgot", {
             templateUrl: "views/account/forgot.html"

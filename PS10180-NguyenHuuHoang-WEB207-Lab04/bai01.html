@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài 01</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
 <body ng-app="myapp">
     <div ng-controller="myctrl">
-        <div>
-            <img src="images/{{ photo }}">
+        <div class="container">
+            <img width="200px" src="images/{{ photo }}"><br><br>
             <ul>
                 <li>Họ và tên: {{ fullname }}</li>
                 <li>Ngày sinh: {{ birhtday }}</li>
