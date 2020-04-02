@@ -22,17 +22,17 @@
                 <li>Điểm: {{ mark }}</li>
             </ul>
         </div>
-        <script>
-            var app = angular.module("myapp", []);
-            app.controller("myctrl", function ($scope) {
-                $scope.fullname = "Nguyễn Văn Tèo";
-                $scope.birhtday = "20-01-1995";
-                $scope.gender = "Nam";
-                $scope.photo = "h1.jpg";
-                $scope.mark = 8.5;
-            })
-        </script>
     </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function ($scope) {
+            $scope.fullname = "Nguyễn Văn Tèo";
+            $scope.birhtday = "01-01-2000";
+            $scope.gender = "Nam";
+            $scope.photo = "h1.jpg";
+            $scope.mark = 8.5;
+        })
+    </script>
 </body>
 
 </html>

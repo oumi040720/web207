@@ -20,19 +20,19 @@
                 <li>Điểm: {{ student.mark }}</li>
             </ul>
         </div>
-        <script>
-            var app = angular.module("myapp", []);
-            app.controller("myctrl", function ($scope) {
-                $scope.student = {
-                    fullname: "Nguyễn Văn Tèo",
-                    birhtday: "20-01-1995",
-                    gender: "Nam",
-                    photo: "h1.jpg",
-                    mark: 8.5,
-                }
-            })
-        </script>
     </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function ($scope) {
+            $scope.student = {
+                fullname: "Nguyễn Văn Tèo",
+                birhtday: "01-01-2000",
+                gender: "Nam",
+                photo: "h2.jpg",
+                mark: 8.5,
+            }
+        })
+    </script>
 </body>
 
 </html>

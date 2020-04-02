@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài 01</title>
+    <title>Bài 03</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -43,35 +43,35 @@
                 <td>{{ students[2].mark }}</td>
             </tr>
         </table>
-        <script>
-            var app = angular.module("myapp", []);
-            app.controller("myctrl", function ($scope) {
-                $scope.students = [
-                    {
-                        fullname: "Nguyễn Văn Tèo",
-                        birthday: "20-01-1995",
-                        gender: "Nam",
-                        photo: "h1.jpg",
-                        mark: 8.5,
-                    },
-                    {
-                        fullname: "Phạm Thị Nở",
-                        birthday: "11-12-1995",
-                        gender: "Nữ",
-                        photo: "h2.jpg",
-                        mark: 5.5,
-                    },
-                    {
-                        fullname: "Trần Ngọc Quang",
-                        birthday: "31-12-1995",
-                        gender: "Nam",
-                        photo: "h3.jpg",
-                        mark: 7,
-                    }
-                ]
-            })
-        </script>
     </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function ($scope) {
+            $scope.students = [
+                {
+                    fullname: "Nguyễn Văn Tèo",
+                    birthday: "20-01-1995",
+                    gender: "Nam",
+                    photo: "h1.jpg",
+                    mark: 8.5,
+                },
+                {
+                    fullname: "Phạm Thị Nở",
+                    birthday: "11-12-1995",
+                    gender: "Nữ",
+                    photo: "h2.jpg",
+                    mark: 5.5,
+                },
+                {
+                    fullname: "Trần Ngọc Quang",
+                    birthday: "31-12-1995",
+                    gender: "Nam",
+                    photo: "h3.jpg",
+                    mark: 7,
+                }
+            ]
+        })
+    </script>
 </body>
 
 </html>
