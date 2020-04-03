@@ -1,4 +1,59 @@
-<h1>quuiz</h1>
-<div>
-
+<div class="row">
+    <div class="col-sm-12" ng-repeat="question in questions | limitTo: 1 : begin">
+        <div class="card">
+            <div class="card-header"><i class="fas fa-list-ul"></i> Xây dụng trang web</div>
+            <div class="card-body">
+                <div>
+                    {{ question.Id }} - {{ question.Text }}
+                </div>
+                <hr>
+                <div ng-repeat="answer in question.Answers">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <input type="radio" ng-click="log()" value="{{ answer.Id }}" name="{{ question.Id }}">
+                            </div>
+                            <div class="col-sm-11"> {{ answer.Text }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">Footer</div>
+        </div>
+    </div>
 </div>
+<div class="row" style="margin: 20px 0;">
+    <div class="col-sm-12">
+        <ul class="pagination pagination-circle pagination-lg justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="First"
+                    ng-click="first()">
+                    <i class="fas fa-fast-backward"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Prev"
+                    ng-click="prev()">
+                    <i class="fas fa-backward"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Next"
+                    ng-click="next()">
+                    <i class="fas fa-forward"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Last"
+                    ng-click="last()">
+                    <i class="fas fa-fast-forward"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
