@@ -11,13 +11,14 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
     <!-- Poly -->
     <link href="css/poly.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" ng-app="myapp" ng-controller="productCtrl">
         <header class="row">
             <div class="shopping-mall">
                 <h1>Online shopping mall</h1>
@@ -72,9 +73,9 @@
                 <!--Nội dung trang web-->
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-4" ng-repeat="prodcut in products">
                             <a href="#" class="thumbnail">
-                                <img src="images/products/1015.jpg" alt="">
+                                <img src="images/products/{{ prodcut }}" alt="">
                             </a>
                             <div class="caption">
                                 Yêu cầu khách hàng cung cấp giấy chứng nhiệu tiêu chuẩn chất lượng và giấy xác nhận nội
@@ -82,63 +83,7 @@
                                 phẩm, dược phẩm /thuốc
                                 <a href="#" class="btn btn-sm btn-info">Chi tiết...</a>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="thumbnail">
-                                <img src="images/products/1015.jpg" alt="">
-                            </a>
-                            <div class="caption">
-                                Yêu cầu khách hàng cung cấp giấy chứng nhiệu tiêu chuẩn chất lượng và giấy xác nhận nội
-                                dung quảng cáo của sản phẩm đối với cá khách hàng kinh doanh thực phẩm chức năng/ thực
-                                phẩm, dược phẩm /thuốc
-                                <a href="#" class="btn btn-sm btn-info">Chi tiết...</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="thumbnail">
-                                <img src="images/products/1015.jpg" alt="">
-                            </a>
-                            <div class="caption">
-                                Yêu cầu khách hàng cung cấp giấy chứng nhiệu tiêu chuẩn chất lượng và giấy xác nhận nội
-                                dung quảng cáo của sản phẩm đối với cá khách hàng kinh doanh thực phẩm chức năng/ thực
-                                phẩm, dược phẩm /thuốc
-                                <a href="#" class="btn btn-sm btn-info">Chi tiết...</a>
-                            </div>
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="#" class="thumbnail">
-                                <img src="images/products/1015.jpg" alt="">
-                            </a>
-                            <div class="caption">
-                                Yêu cầu khách hàng cung cấp giấy chứng nhiệu tiêu chuẩn chất lượng và giấy xác nhận nội
-                                dung quảng cáo của sản phẩm đối với cá khách hàng kinh doanh thực phẩm chức năng/ thực
-                                phẩm, dược phẩm /thuốc
-                                <a href="#" class="btn btn-sm btn-info">Chi tiết...</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="thumbnail">
-                                <img src="images/products/1015.jpg" alt="">
-                            </a>
-                            <div class="caption">
-                                Yêu cầu khách hàng cung cấp giấy chứng nhiệu tiêu chuẩn chất lượng và giấy xác nhận nội
-                                dung quảng cáo của sản phẩm đối với cá khách hàng kinh doanh thực phẩm chức năng/ thực
-                                phẩm, dược phẩm /thuốc
-                                <a href="#" class="btn btn-sm btn-info">Chi tiết...</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="thumbnail">
-                                <img src="images/products/1015.jpg" alt="">
-                            </a>
-                            <div class="caption">
-                                Yêu cầu khách hàng cung cấp giấy chứng nhiệu tiêu chuẩn chất lượng và giấy xác nhận nội
-                                dung quảng cáo của sản phẩm đối với cá khách hàng kinh doanh thực phẩm chức năng/ thực
-                                phẩm, dược phẩm /thuốc
-                                <a href="#" class="btn btn-sm btn-info">Chi tiết...</a>
-                            </div>
+                            <br>
                         </div>
                     </div>
                     <div class="row text-center">
@@ -254,6 +199,12 @@
             </div>
         </footer>
     </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("productCtrl", function ($scope) {
+            $scope.products = ["1015.jpg", "1016.jpg", "1017.jpg", "1018.jpg", "1019.jpg", "1020.jpg", "1001.jpg", "1002.jpg", "1005.jpg"];
+        })
+    </script>
 </body>
 
 </html>

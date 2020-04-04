@@ -1,19 +1,20 @@
 <div class="row">
-    <div class="col-sm-12" ng-repeat="question in questions | limitTo: 1 : begin">
+    <div class="col-sm-12" ng-repeat="quiz in quizs | limitTo: 1 : begin">
         <div class="card">
             <div class="card-header"><i class="fas fa-list-ul"></i> Xây dụng trang web</div>
             <div class="card-body">
                 <div>
-                    {{ question.Id }} - {{ question.Text }}
+                    <u>Câu {{ quiz.No }}:</u> {{ quiz.Text }}
                 </div>
                 <hr>
-                <div ng-repeat="answer in question.Answers">
+                <div ng-repeat="option in quiz.Answers">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-1">
-                                <input type="radio" ng-click="log()" value="{{ answer.Id }}" name="{{ question.Id }}">
+                                <input type="radio" id="{{ option.Id }}" ng-model="option.Selected"
+                                    value="{{ option.Id }}" name="{{ quiz.Id }}">
                             </div>
-                            <div class="col-sm-11"> {{ answer.Text }}</div>
+                            <div class="col-sm-11"> {{ option.Text }}</div>
                         </div>
                     </div>
                 </div>
