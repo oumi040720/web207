@@ -4,6 +4,9 @@ app.controller("quizCtrl", function ($scope, $http, $routeParams) {
     $http.get(url).then(function (response) {
         $scope.questions = response.data;
 
+        $scope.mark = 0;
+        $scope.flag = 1;
+
         $scope.begin = 0;
         $scope.page = 10;
 
@@ -29,9 +32,32 @@ app.controller("quizCtrl", function ($scope, $http, $routeParams) {
                 }
             }
         }
-        console.log($scope.quizs);
 
-        $scope.clickAnswer = function () {
+        $scope.onSelect = function (quiz, option) {
+            $scope.flag += 1;
+            for (let i = 0; i < $scope.quizs.length; i++) {
+                if ($scope.quizs[i].Id == quiz.Id) {
+                    $scope.quizs[i].yourAnswer = option.Id;
+                    break;
+                }
+            }
+        }
+
+        $scope.isDoneAnswer = function () {
+            if ($scope.flag == 10) {
+                return false;
+            }
+            return true;
+        }
+
+        $scope.submit = function () {
+            for (let i = 0; i < $scope.quizs.length; i++) {
+                if ($scope.quizs[i].yourAnswer == $scope.quizs[i].AnswerID) {
+                    $scope.mark += 1;
+                }
+            }
+
+            console.log($scope.mark);
 
         }
 

@@ -11,15 +11,39 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-1">
-                                <input type="radio" id="{{ option.Id }}" ng-model="option.Selected"
-                                    value="{{ option.Id }}" name="{{ quiz.Id }}">
+                                <input type="radio" id="{{ option.Id }}" ng-click="onSelect(quiz, option);"
+                                    ng-model="option.Selected" value="{{ option.Id }}" name="{{ quiz.Id }}">
                             </div>
                             <div class="col-sm-11"> {{ option.Text }}</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-footer">Footer</div>
+            <div class="card-footer text- center">
+                <div class="row">
+                    <!-- <div class="col-sm-6">ĐIỂM: {{ mark }} / 10</div> -->
+                    <div class="col-sm-12">
+                        <button class="btn btn-success float-right" ng-disabled="isDoneAnswer()" data-toggle="modal"
+                            data-target="#confirm">Nộp bài</button>
+                    </div>
+                    <!-- The Modal -->
+                    <div class="modal fade" id="confirm">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body text-center">
+                                    <br>
+                                    Bạn có chắc nộp bài chứ ?
+                                    <br><br><br>
+                                    <div>
+                                        <button class="btn btn-primary" ng-click="submit()">Có</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
