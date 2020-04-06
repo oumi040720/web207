@@ -18,6 +18,7 @@ app.controller("loginCtrl", function ($rootScope, $scope, $http, $location) {
 
             if (flag) {
                 $location.path("/home");
+                $rootScope.yourResults = [];
             } else {
                 $scope.resultLogin = "Tài khoản hoặc mật khẩu không chính xác!"
             }

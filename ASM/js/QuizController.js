@@ -1,11 +1,11 @@
-app.controller("quizCtrl", function ($scope, $http, $routeParams) {
+app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $location) {
     var id = $routeParams.Id;
     var url = "db/Quizs/" + id + ".js";
     $http.get(url).then(function (response) {
         $scope.questions = response.data;
 
         $scope.mark = 0;
-        $scope.flag = 1;
+        $scope.flag = 0;
 
         $scope.begin = 0;
         $scope.page = 10;
@@ -44,7 +44,7 @@ app.controller("quizCtrl", function ($scope, $http, $routeParams) {
         }
 
         $scope.isDoneAnswer = function () {
-            if ($scope.flag == 10) {
+            if ($scope.flag >= $scope.quizs.length) {
                 return false;
             }
             return true;
@@ -57,8 +57,16 @@ app.controller("quizCtrl", function ($scope, $http, $routeParams) {
                 }
             }
 
-            console.log($scope.mark);
+            var result = {
+                "ResultID": $rootScope.yourResults.length + 1,
+                "quizs": $scope.quizs,
+                "mark": $scope.mark
+            }
 
+            $rootScope.yourResults.push(result);
+            $location.path("/result");
+
+            console.log($rootScope.yourResults);
         }
 
         $scope.first = function () {

@@ -13,6 +13,18 @@ app.config(function ($routeProvider) {
             },
             templateUrl: "views/home.html"
         })
+        .when("/result", {
+            resolve: {
+                "check": function ($rootScope, $location) {
+                    if (!$rootScope.loggedIn) {
+                        $rootScope.notLogin = "Bạn chưa đăng nhập!"
+                        $location.path("/login");
+                    }
+                }
+            },
+            templateUrl: "views/result.html",
+            controller: "resultCtrl"
+        })
         .when("/login", {
             templateUrl: "views/account/login.html",
             controller: "loginCtrl"

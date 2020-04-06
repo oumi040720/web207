@@ -1,0 +1,60 @@
+<div class="row">
+    <h3>Danh sách các lần làm bài</h3><br>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Thời gian làm</th>
+                    <th>Môn</th>
+                    <th>Điểm</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="result in results">
+                    <td>{{ result.ResultID }}</td>
+                    <td>00 : 00</td>
+                    <td>abc</td>
+                    <td>{{ result.mark }}</td>
+                    <td>
+                        <a href="">Xem chi tiết</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row" style="margin: 20px 0;">
+    <div class="col-sm-12">
+        <ul class="pagination pagination-circle pagination-lg justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="First"
+                    ng-click="first()">
+                    <i class="fas fa-fast-backward"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Prev"
+                    ng-click="prev()">
+                    <i class="fas fa-backward"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Next"
+                    ng-click="next()">
+                    <i class="fas fa-forward"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Last"
+                    ng-click="last()">
+                    <i class="fas fa-fast-forward"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
