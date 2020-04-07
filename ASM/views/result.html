@@ -21,40 +21,47 @@
                     <td>abc</td>
                     <td>{{ result.mark }}</td>
                     <td>
-                        <a href="">Xem chi tiết</a>
+                        <a data-toggle="modal" data-target="#result{{ result.ResultID }}">Chi tiết</a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-<div class="row" style="margin: 20px 0;">
-    <div class="col-sm-12">
-        <ul class="pagination pagination-circle pagination-lg justify-content-center">
-            <li class="page-item">
-                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="First"
-                    ng-click="first()">
-                    <i class="fas fa-fast-backward"></i>
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Prev"
-                    ng-click="prev()">
-                    <i class="fas fa-backward"></i>
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Next"
-                    ng-click="next()">
-                    <i class="fas fa-forward"></i>
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Last"
-                    ng-click="last()">
-                    <i class="fas fa-fast-forward"></i>
-                </a>
-            </li>
-        </ul>
+<div ng-repeat="result in results">
+    <div class="modal fade" id="result{{ result.ResultID }}">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="card" ng-repeat="quiz in result.quizs">
+                        <br>
+                        <div class="card-header">
+                            <u>Câu {{ quiz.No }}:</u> {{ quiz.Text }}
+                        </div>
+                        <div class="card-body">
+                            <div ng-repeat="option in quiz.Answers">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                            <div ng-if="option.Id == quiz.yourAnswer">
+                                                <input type="radio" ng-model="option.Selected" ng-checked="true">
+                                            </div>
+                                            <div ng-if="option.Id != quiz.yourAnswer">
+                                                <input type="radio" ng-model="option.Id" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-11"> {{ option.Text }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

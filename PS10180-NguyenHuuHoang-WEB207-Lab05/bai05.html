@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 05</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <style>
+        .poly-prod {
+            height: 150px;
+            max-width: 95%;
+        }
+    </style>
+</head>
+
+<body ng-app="myapp">
+    <br>
+    <div class="container">
+        <div ng-controller="myctrl">
+            <div class="row">
+                <div class="col-md-3" ng-repeat="product in products">
+                    <div class="card text-center">
+                        <div class="card-header bg-primary">{{ product.name }}</div>
+                        <div class="card-body">
+                            <img class="poly-prod" src="images/products/{{ product.image }}" alt="">
+                        </div>
+                        <div class="card-footer">$ {{ product.price }}</div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function ($scope) {
+            $scope.products = [
+                {
+                    name: "Đồng hồ thụy sỹ",
+                    image: "1001.jpg",
+                    price: 1200
+                },
+                {
+                    name: "Dell Star X",
+                    image: "1003.jpg",
+                    price: 700
+                },
+                {
+                    name: "Sony Vaio 2017",
+                    image: "1004.jpg",
+                    price: 1700
+                },
+                {
+                    name: "Máy ảnh Canon",
+                    image: "1005.jpg",
+                    price: 300
+                },
+                {
+                    name: "Vòng cưới France",
+                    image: "1009.jpg",
+                    price: 7000
+                },
+                {
+                    name: "Motorola thế hệ 5",
+                    image: "1011.jpg",
+                    price: 900
+                },
+                {
+                    name: "Mũ cao bồi Mexico",
+                    image: "1014.jpg",
+                    price: 100
+                },
+                {
+                    name: "Nước hoa Korea",
+                    image: "1023.jpg",
+                    price: 600
+                }
+            ];
+        });
+    </script>
+</body>
+
+</html>

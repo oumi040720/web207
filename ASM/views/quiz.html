@@ -19,15 +19,23 @@
                     </div>
                 </div>
             </div>
-            <div class="card-footer text- center">
+            <div class="card-footer">
                 <div class="row">
-                    <!-- <div class="col-sm-6">ĐIỂM: {{ mark }} / 10</div> -->
-                    <div class="col-sm-12">
-                        <button class="btn btn-success float-right" ng-disabled="isDoneAnswer()" ng-click="submit()">Nộp
+                    <div class="col-sm-6">
+                        <div class="float-left">
+                            <div class="text-center">
+                                {{ time }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <button class="btn btn-success float-right" data-toggle="modal" data-target="#confirmModal"
+                            ng-disabled="isDoneAnswer()">Nộp bài</button> -->
+                        <button class="btn btn-success float-right" ng-click="submit()" ng-disabled="isDoneAnswer()">Nộp
                             bài</button>
                     </div>
                     <!-- The Modal -->
-                    <div class="modal fade" id="confirm">
+                    <div class="modal fade" id="confirmModal">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-body text-center">
@@ -35,7 +43,7 @@
                                     Bạn có chắc nộp bài chứ ?
                                     <br><br><br>
                                     <div>
-                                        <button class="btn btn-primary" ng-click="submit()">Có</button>
+                                        <button id="submit" class="btn btn-primary" ng-click="submit()">Có</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
                                     </div>
                                 </div>
@@ -80,5 +88,8 @@
 <script>
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
+        $("#submit").click(function () {
+            $('#confirmModal').modal('toggle');
+        });
     });
 </script>

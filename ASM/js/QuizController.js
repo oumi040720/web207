@@ -1,6 +1,7 @@
-app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $location) {
+app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $location, $timeout) {
     var id = $routeParams.Id;
     var url = "db/Quizs/" + id + ".js";
+
     $http.get(url).then(function (response) {
         $scope.questions = response.data;
 
@@ -11,9 +12,14 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
         $scope.page = 10;
 
         var arrNo = [];
-        for (let i = 0; i < 10; i++) {
-            arrNo.push(parseInt(Math.floor(Math.random() * $scope.questions.length) + 1));
+
+        while (arrNo.length < 10) {
+            var r = Math.floor(Math.random() * $scope.questions.length) + 1;
+            if (arrNo.indexOf(r) === -1) {
+                arrNo.push(r);
+            }
         }
+
 
         $scope.quizs = [];
 
@@ -45,9 +51,9 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
 
         $scope.isDoneAnswer = function () {
             if ($scope.flag >= $scope.quizs.length) {
-                return false;
+                return false
             }
-            return true;
+            return true
         }
 
         $scope.submit = function () {
@@ -64,9 +70,9 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
             }
 
             $rootScope.yourResults.push(result);
-            $location.path("/result");
 
             console.log($rootScope.yourResults);
+            $location.path("/result");
         }
 
         $scope.first = function () {
