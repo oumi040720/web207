@@ -2,14 +2,12 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
     var id = $routeParams.Id;
     var url = "db/Quizs/" + id + ".js";
 
+    // quiz
     $http.get(url).then(function (response) {
         $scope.questions = response.data;
 
         $scope.mark = 0;
         $scope.flag = 0;
-
-        $scope.begin = 0;
-        $scope.page = 10;
 
         var arrNo = [];
 
@@ -20,9 +18,7 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
             }
         }
 
-
         $scope.quizs = [];
-
         for (let i = 0; i < $scope.questions.length; i++) {
             for (let j = 0; j < arrNo.length; j++) {
                 if (i == arrNo[j]) {
@@ -38,6 +34,8 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
                 }
             }
         }
+        $scope.begin = 0;
+        $scope.page = $scope.quizs.length;
 
         $scope.onSelect = function (quiz, option) {
             $scope.flag += 1;
@@ -50,10 +48,10 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
         }
 
         $scope.isDoneAnswer = function () {
-            if ($scope.flag >= $scope.quizs.length) {
-                return false
+            if ($scope.flag >= $scope.quizs.length && $scope.begin == $scope.quizs.length - 1) {
+                return true
             }
-            return true
+            return false
         }
 
         $scope.submit = function () {
@@ -65,13 +63,13 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
 
             var result = {
                 "ResultID": $rootScope.yourResults.length + 1,
+                "SubjectID": id,
                 "quizs": $scope.quizs,
-                "mark": $scope.mark
+                "mark": $scope.mark + " / " + $scope.quizs.length,
+                "time": $scope.time
             }
 
             $rootScope.yourResults.push(result);
-
-            console.log($rootScope.yourResults);
             $location.path("/result");
         }
 
@@ -92,4 +90,39 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
             $scope.begin = ($scope.page - 1);
         }
     })
+
+    // time
+    $scope.ss = 0;
+    $scope.time = "00 : 00";
+    $scope.onTimeout = function () {
+        $scope.ss++;
+        if ($scope.ss < 10) {
+            $scope.time = "00 : 0" + $scope.ss
+        } else if ($scope.ss < 60) {
+            $scope.time = "00 : " + $scope.ss
+        } else {
+            if ($scope.ss % 60 == 0) {
+                $scope.time = ($scope.ss / 60) + " : 00"
+            } else {
+                var m = parseInt($scope.ss / 60);
+                var s = $scope.ss % 60;
+                if (m < 10) {
+                    if (s < 10) {
+                        $scope.time = "0" + m + " : 0" + s
+                    } else if (s < 60) {
+                        $scope.time = "0" + m + " : " + s
+                    }
+                } else {
+                    if (s < 10) {
+                        $scope.time = m + " : 0" + s
+                    } else if (s < 60) {
+                        $scope.time = m + " : " + s
+                    }
+                }
+
+            }
+        }
+        mytimeout = $timeout($scope.onTimeout, 1000);
+    }
+    $timeout($scope.onTimeout, 1000);
 })

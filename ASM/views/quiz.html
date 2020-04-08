@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-12" ng-repeat="quiz in quizs | limitTo: 1 : begin">
         <div class="card">
-            <div class="card-header"><i class="fas fa-list-ul"></i> Xây dụng trang web</div>
+            <div class="card-header"><i class="fas fa-list-ul"></i> Xây dựng trang web</div>
             <div class="card-body">
                 <div>
                     <u>Câu {{ quiz.No }}:</u> {{ quiz.Text }}
@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="float-left">
-                            <div class="text-center">
+                            <div class="text-center badge badge-pill badge-info">
                                 {{ time }}
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                     <div class="col-sm-6">
                         <!-- <button class="btn btn-success float-right" data-toggle="modal" data-target="#confirmModal"
                             ng-disabled="isDoneAnswer()">Nộp bài</button> -->
-                        <button class="btn btn-success float-right" ng-click="submit()" ng-disabled="isDoneAnswer()">Nộp
+                        <button class="btn btn-success float-right" ng-click="submit()" ng-show="isDoneAnswer()">Nộp
                             bài</button>
                     </div>
                     <!-- The Modal -->

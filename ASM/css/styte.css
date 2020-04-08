@@ -81,3 +81,7 @@ input {
     opacity: 1;
     cursor: pointer;
 }
+
+.pd-rs {
+    padding-bottom: 10px;
+}
