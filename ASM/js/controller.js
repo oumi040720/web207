@@ -1,4 +1,4 @@
-var app = angular.module("myapp", ["ngRoute"]);
+var app = angular.module("myapp", ["ngRoute", 'firebase']);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -45,10 +45,20 @@ app.config(function ($routeProvider) {
                     }
                 }
             },
-            templateUrl: "views/account/update.html"
+            templateUrl: "views/account/update.html",
+            controller: "updateCtrl"
         })
         .when("/change", {
-            templateUrl: "views/account/change.html"
+            resolve: {
+                "check": function ($rootScope, $location) {
+                    if (!$rootScope.loggedIn) {
+                        $rootScope.notLogin = "Bạn chưa đăng nhập!"
+                        $location.path("/login");
+                    }
+                }
+            },
+            templateUrl: "views/account/change.html",
+            controller: "changeCtrl"
         })
         .when("/quiz/:Id", {
             resolve: {

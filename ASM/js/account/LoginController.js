@@ -1,7 +1,9 @@
-app.controller("loginCtrl", function ($rootScope, $scope, $http, $location) {
-    $http.get("db/Students.js").then(function (response) {
-        $scope.students = response.data;
+app.controller("loginCtrl", function ($rootScope, $scope, $firebase, $location) {
+    var ref = new Firebase("https://web207-asm-ps10180.firebaseio.com/");
+    var sync = $firebase(ref);
+    $scope.students = sync.$asArray();
 
+    $scope.students.$loaded().then(function () {
         $scope.checkLogin = function () {
             var username = $scope.username;
             var password = $scope.password;

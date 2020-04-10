@@ -15,18 +15,21 @@ app.directive('confirm', function () {
     };
 });
 
-app.directive('existed', function ($http) {
+app.directive('existed', function ($firebase) {
     return {
         require: 'ngModel',
         link: function (scope, element, attr, mCtrl) {
             function myValidation(value) {
-                $http.get("db/Students.js").then(function (response) {
-                    scope.students = response.data;
+                var ref = new Firebase("https://web207-asm-ps10180.firebaseio.com/");
+                var sync = $firebase(ref);
+                scope.students = sync.$asArray();
+
+                scope.students.$loaded().then(function () {
                     var flag = true;
 
                     if (value.length > 0) {
                         for (let i = 0; i < scope.students.length; i++) {
-                            if (value === scope.students[i].username) {
+                            if (value == scope.students[i].username) {
                                 flag = false;
                                 break;
                             }
@@ -34,10 +37,28 @@ app.directive('existed', function ($http) {
                     }
 
                     mCtrl.$setValidity('charE', flag);
-                })
+                });
                 return value;
             }
             mCtrl.$parsers.push(myValidation);
         }
     };
 });
+
+// app.directive('dateFormat', function () {
+//     return {
+//         require: 'ngModel',
+//         link: function (scope, element, attr, mCtrl) {
+//             function myValidation(value) {
+//                 var patt = value.split("-")
+//                 if (patt.length == 3) {
+//                     mCtrl.$setValidity('charE', false);
+//                 } else {
+//                     mCtrl.$setValidity('charE', true);
+//                 }
+//                 return value;
+//             }
+//             mCtrl.$parsers.push(myValidation);
+//         }
+//     };
+// });

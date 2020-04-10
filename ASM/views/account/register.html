@@ -64,16 +64,23 @@
                     <small>Không được để trống giới tính</small>
                 </em>
             </div>
-            <div class="form-group">
-                <input type="date" class="form-control" name="birthday" ng-model="birthday" required>
+            <div class="md-form">
+                <input type="text" class="form-control" name="birthday" ng-model="birthday" required dateFormat>
+                <label>Ngày sinh</label>
                 <em class="text-danger"
                     ng-show="registerForm.birthday.$touched && registerForm.birthday.$error.required">
                     <small>Không được để trống ngày sinh</small>
                 </em>
-                <em class="text-danger" ng-show="registerForm.birthday.$touched && registerForm.birthday.$error.date">
-                    <small>Không đúng định dạng ngày MM/dd/yyyy</small>
+                <em class="text-danger" ng-show="registerForm.birthday.$touched && registerForm.birthday.$error.charE">
+                    <small>Không đúng định dạng ngày dd-MM-yyyy</small>
                 </em>
             </div><br>
+            <div ng-if="message.length > 0">
+                <div class="alert alert-success alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+            </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-outline-info btn-block" ng-disabled="!registerForm.$valid"
                     ng-click="register()">
