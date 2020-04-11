@@ -34,7 +34,8 @@ app.config(function ($routeProvider) {
             controller: "registerCtrl"
         })
         .when("/forgot", {
-            templateUrl: "views/account/forgot.html"
+            templateUrl: "views/account/forgot.html",
+            controller: "forgotCtrl"
         })
         .when("/update", {
             resolve: {
@@ -81,6 +82,11 @@ app.config(function ($routeProvider) {
 })
 
 app.controller("myctrl", function ($rootScope, $scope, $http, $location) {
+    $scope.logout = function () {
+        delete $rootScope.USER;
+        $rootScope.loggedIn = false;
+    }
+
     $http.get("db/Subjects.js").then(function (response) {
         $scope.subjects = response.data;
 

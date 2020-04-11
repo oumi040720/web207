@@ -23,8 +23,15 @@
                     <small>Không đúng định dạng mail</small>
                 </em>
             </div>
+            <div ng-if="message.length > 0">
+                <div class="alert alert-{{ alert }} alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+            </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-outline-danger btn-block" ng-disabled="!forgotForm.$valid">
+                <button type="submit" class="btn btn-outline-danger btn-block" ng-click="getPassword()"
+                    ng-disabled="!forgotForm.$valid">
                     Lấy mật khẩu
                 </button>
                 <a href="#!login" class="btn btn-light btn-block">

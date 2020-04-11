@@ -1,6 +1,7 @@
 app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $location, $timeout) {
     var id = $routeParams.Id;
     var url = "db/Quizs/" + id + ".js";
+    $scope.quizs = [];
 
     // quiz
     $http.get(url).then(function (response) {
@@ -11,6 +12,7 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
 
         var arrNo = [];
 
+
         while (arrNo.length < 10) {
             var r = Math.floor(Math.random() * $scope.questions.length) + 1;
             if (arrNo.indexOf(r) === -1) {
@@ -18,7 +20,6 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
             }
         }
 
-        $scope.quizs = [];
         for (let i = 0; i < $scope.questions.length; i++) {
             for (let j = 0; j < arrNo.length; j++) {
                 if (i == arrNo[j]) {
@@ -48,11 +49,17 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
         }
 
         $scope.isDoneAnswer = function () {
-            if ($scope.flag >= $scope.quizs.length && $scope.begin == $scope.quizs.length - 1) {
-                return true
+            for (let i = 0; i < $scope.quizs.length; i++) {
+                if ($scope.flag >= $scope.quizs.length) {
+                    if ($scope.quizs[i].yourAnswer != "") {
+                        return true
+                    }
+                }
             }
+
             return false
         }
+        $timeout($scope.isDoneAnswer, 1000);
 
         $scope.submit = function () {
             for (let i = 0; i < $scope.quizs.length; i++) {

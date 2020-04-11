@@ -29,26 +29,8 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <!-- <button class="btn btn-success float-right" data-toggle="modal" data-target="#confirmModal"
-                            ng-disabled="isDoneAnswer()">Nộp bài</button> -->
                         <button class="btn btn-success float-right" ng-click="submit()" ng-show="isDoneAnswer()">Nộp
                             bài</button>
-                    </div>
-                    <!-- The Modal -->
-                    <div class="modal fade" id="confirmModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body text-center">
-                                    <br>
-                                    Bạn có chắc nộp bài chứ ?
-                                    <br><br><br>
-                                    <div>
-                                        <button id="submit" class="btn btn-primary" ng-click="submit()">Có</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -85,11 +67,3 @@
         </ul>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-        $("#submit").click(function () {
-            $('#confirmModal').modal('toggle');
-        });
-    });
-</script>

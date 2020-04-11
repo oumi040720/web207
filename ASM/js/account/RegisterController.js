@@ -1,4 +1,4 @@
-app.controller("registerCtrl", ['$scope', '$firebase', function ($scope, $firebase, $location) {
+app.controller("registerCtrl", function ($scope, $firebase, $location) {
     $scope.register = function () {
         var username = $scope.username;
         var password = $scope.password;
@@ -19,7 +19,9 @@ app.controller("registerCtrl", ['$scope', '$firebase', function ($scope, $fireba
         var ref = new Firebase("https://web207-asm-ps10180.firebaseio.com/");
         var sync = $firebase(ref);
         sync.$asArray().$add(data);
+
         $scope.message = "Đăng ký thành công!"
+        $location.path("/register");
     }
 
-}])
+})
