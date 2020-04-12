@@ -15,12 +15,15 @@ app.controller("changeCtrl", function ($rootScope, $scope, $firebase) {
                         "birthday": $rootScope.USER.birthday
                     }
 
-
                     sync.$update($scope.students[i].$id, data);
+                    $scope.message = "Đổi mật khẩu thành công!"
+                    $scope.alert = "success";
                     break;
+                } else {
+                    $scope.message = "Đổi mật khẩu thất bại!"
+                    $scope.alert = "danger";
                 }
             }
-            $scope.message = "Đổi mật khẩu thành công!"
         });
     }
 })

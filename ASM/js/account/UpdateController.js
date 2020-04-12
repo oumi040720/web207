@@ -26,22 +26,24 @@ app.controller("updateCtrl", function ($rootScope, $scope, $firebase) {
                     }
 
                     sync.$update($scope.students[i].$id, data);
+                    $scope.message = "Cập nhật thành công!"
+                    $scope.alert = "success";
+
+                    $scope.fullname = fullname;
+                    $scope.email = email;
+                    $scope.gender = gender;
+                    $scope.birthday = birthday;
+
+                    $rootScope.USER.fullname = fullname;
+                    $rootScope.USER.email = email;
+                    $rootScope.USER.gender = gender
+                    $rootScope.USER.birthday = birthday;
                     break;
+                } else {
+                    $scope.message = "Cập nhật thất bại!"
+                    $scope.alert = "danger";
                 }
             }
         });
-
-        $scope.message = "Cập nhật thành công!"
-
-        $scope.fullname = fullname;
-        $scope.email = email;
-        $scope.gender = gender;
-        $scope.birthday = birthday;
-
-        $rootScope.USER.fullname = fullname;
-        $rootScope.USER.email = email;
-        $rootScope.USER.gender = gender
-        $rootScope.USER.birthday = birthday;
     }
-
 })

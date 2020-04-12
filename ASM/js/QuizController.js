@@ -2,6 +2,17 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
     var id = $routeParams.Id;
     var url = "db/Quizs/" + id + ".js";
     $scope.quizs = [];
+    $scope.subjectName = "";
+
+    $http.get("db/Subjects.js").then(function (response) {
+        var subjects = response.data;
+        for (let i = 0; i < subjects.length; i++) {
+            if (subjects[i].Id == id) {
+                $scope.subjectName = subjects[i].Name
+                break;
+            }
+        }
+    })
 
     // quiz
     $http.get(url).then(function (response) {
@@ -70,7 +81,7 @@ app.controller("quizCtrl", function ($rootScope, $scope, $http, $routeParams, $l
 
             var result = {
                 "ResultID": $rootScope.yourResults.length + 1,
-                "SubjectID": id,
+                "SubjectID": id + " - " + $scope.subjectName,
                 "quizs": $scope.quizs,
                 "mark": $scope.mark + " / " + $scope.quizs.length,
                 "time": $scope.time
