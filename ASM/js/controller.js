@@ -73,6 +73,15 @@ app.config(function ($routeProvider) {
             templateUrl: "views/quiz.html",
             controller: "quizCtrl"
         })
+        .when("/about", {
+            templateUrl: "views/about.html",
+        })
+        .when("/contact", {
+            templateUrl: "views/contact.html",
+        })
+        .when("/feedback", {
+            templateUrl: "views/feedback.html",
+        })
         .when("/logout", {
             redirectTo: "/login"
         })

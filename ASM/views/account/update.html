@@ -37,13 +37,12 @@
                 </em>
             </div>
             <div class="md-form">
-                <input type="text" class="form-control" name="birthday" ng-model="birthday" required dateFormat>
+                <input type="text" class="form-control" name="birthday" ng-model="birthday" required date-Format>
                 <label class="active">Ngày sinh</label>
-                <em class="text-danger"
-                    ng-show="registerForm.birthday.$touched && registerForm.birthday.$error.required">
+                <em class="text-danger" ng-show="updateForm.birthday.$touched && updateForm.birthday.$error.required">
                     <small>Không được để trống ngày sinh</small>
                 </em>
-                <em class="text-danger" ng-show="registerForm.birthday.$touched && registerForm.birthday.$error.charE">
+                <em class="text-danger" ng-show="updateForm.birthday.$touched && updateForm.birthday.$error.charE">
                     <small>Không đúng định dạng ngày dd-MM-yyyy</small>
                 </em>
             </div><br>

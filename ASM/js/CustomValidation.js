@@ -45,20 +45,52 @@ app.directive('existed', function ($firebase) {
     };
 });
 
-// app.directive('dateFormat', function () {
-//     return {
-//         require: 'ngModel',
-//         link: function (scope, element, attr, mCtrl) {
-//             function myValidation(value) {
-//                 var patt = value.split("-")
-//                 if (patt.length == 3) {
-//                     mCtrl.$setValidity('charE', false);
-//                 } else {
-//                     mCtrl.$setValidity('charE', true);
-//                 }
-//                 return value;
-//             }
-//             mCtrl.$parsers.push(myValidation);
-//         }
-//     };
-// });
+app.directive('dateFormat', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, element, attr, mCtrl) {
+            function myValidation(value) {
+                var flag = true;
+
+                var birthday = value.split("-")
+                if (birthday.length == 3) {
+                    if (Number.isInteger(birthday[0]) || Number.isInteger(birthday[1]) || Number.isInteger(birthday[2])) {
+                        flag = false;
+                    } else {
+                        if (birthday[0] > 31 || birthday[1] > 12) {
+                            flag = false;
+                        } else {
+                            if (birthday[1] == 4 || birthday[1] == 6 || birthday[1] == 9 || birthday[1] == 11) {
+                                if (birthday[0] > 30) {
+                                    flag = false;
+                                }
+                            }
+                            if (birthday[0] > 29 && birthday[1] == 2) {
+                                flag = false;
+                            } else if (birthday[0] == 29 && birthday[1] == 2) {
+                                if (birthday[2] % 4 == 0) {
+                                    if (birthday[2] % 100 == 0) {
+                                        if (birthday[2] % 400 == 0) {
+                                            flag = true;
+                                        } else {
+                                            flag = false;
+                                        }
+                                    } else {
+                                        flag = false;
+                                    }
+                                } else {
+                                    flag = false;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                mCtrl.$setValidity('charE', flag);
+
+                return value;
+            }
+            mCtrl.$parsers.push(myValidation);
+        }
+    };
+});
