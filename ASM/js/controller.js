@@ -82,6 +82,9 @@ app.config(function ($routeProvider) {
         .when("/feedback", {
             templateUrl: "views/feedback.html",
         })
+        .when("/faq", {
+            templateUrl: "views/faq.html",
+        })
         .when("/logout", {
             redirectTo: "/login"
         })

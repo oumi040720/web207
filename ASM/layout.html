@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- 
+
+    USERNAME: admin
+    PASSWORD: 123
+
+ -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,20 +45,25 @@
 
         <nav class="row navbar navbar-expand-sm bg-dark navbar-dark" ng-include="'menu.html'"> </nav>
 
-        <div class="row" style="padding: 25px 0;">
-            <article class="col-sm-9">
-                <ng-view></ng-view>
-            </article>
+        <div class="row" style="padding: 25px 0px;">
+            <div class="col-sm-12 card" style="padding-right: 10px;">
+                <div class="row card-body">
+                    <article class="col-sm-9">
+                        <ng-view></ng-view>
+                    </article>
 
-            <aside class="col-sm-3">
-                <div ng-include="'category.html'"></div>
-            </aside>
+                    <aside class="col-sm-3">
+                        <div ng-include="'category.html'"></div>
+                    </aside>
+                </div>
+            </div>
         </div>
 
-        <footer class="row">
+        <footer class="row bg-light">
             <div class="text-center col-sm-12">
-                <br><br><br><br>
+                <br>
                 <p>FPT Polytechnic &copy; 2020. All rights reserved.</p>
+                <br>
             </div>
         </footer>
     </div>

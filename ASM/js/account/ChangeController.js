@@ -20,7 +20,7 @@ app.controller("changeCtrl", function ($rootScope, $scope, $firebase) {
                     $scope.alert = "success";
                     break;
                 } else {
-                    $scope.message = "Đổi mật khẩu thất bại!"
+                    $scope.message = "Mật khẩu cũ không chính xác. Đổi mật khẩu thất bại!"
                     $scope.alert = "danger";
                 }
             }

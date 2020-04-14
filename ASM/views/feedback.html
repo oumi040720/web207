@@ -6,21 +6,40 @@
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-                <div class="md-form">
-                    <input type="email" class="form-control" name="email" ng-model="email" required>
-                    <label>E-mail người gửi</label>
-                </div>
-                <div class="md-form">
-                    <input type="text" class="form-control" name="subject" ng-model="subject" required>
-                    <label>Chủ đề</label>
-                </div>
-                <div class="md-form">
-                    <textarea class="md-textarea form-control" rows="3"></textarea>
-                    <label>Nội dung</label>
-                </div>
-                <div class="md-form">
-                    <button class="btn btn-primary btn-block">Gửi</button>
-                </div>
+                <form name="feedbackForm">
+                    <div class="md-form">
+                        <input type="email" class="form-control" name="email" ng-model="email" required>
+                        <label>E-mail người gửi</label>
+                        <em class="text-danger"
+                            ng-show="feedbackForm.email.$touched && feedbackForm.email.$error.required">
+                            <small>Không được để trống email</small>
+                        </em>
+                        <em class="text-danger"
+                            ng-show="feedbackForm.email.$touched && feedbackForm.email.$error.email">
+                            <small>Không đúng định dạng mail</small>
+                        </em>
+                    </div>
+                    <div class="md-form">
+                        <input type="text" class="form-control" name="subject" ng-model="subject" required>
+                        <label>Chủ đề</label>
+                        <em class="text-danger"
+                            ng-show="feedbackForm.subject.$touched && feedbackForm.subject.$error.required">
+                            <small>Không được để trống chủ đề</small>
+                        </em>
+                    </div>
+                    <div class="md-form">
+                        <textarea class="md-textarea form-control" name="content" ng-model="content" required
+                            rows="3"></textarea>
+                        <label>Nội dung</label>
+                        <em class="text-danger"
+                            ng-show="feedbackForm.content.$touched && feedbackForm.content.$error.required">
+                            <small>Không được để trống nội dung</small>
+                        </em>
+                    </div>
+                    <div class="md-form">
+                        <button class="btn btn-primary btn-block" ng-disabled="!feedbackForm.$valid">Gửi</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
