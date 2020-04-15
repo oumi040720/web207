@@ -1,0 +1,66 @@
+<div class="row" ng-controller="updateCtrl">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="text-center">
+            <h3>Cập nhật thông tin</h3>
+        </div>
+        <form name="updateForm">
+            <div class="md-form">
+                <input type="text" class="form-control" disabled ng-model="USER.username">
+                <label class="active">Tài khoản</label>
+            </div>
+            <div class="md-form">
+                <input type="text" class="form-control" name="fullname" ng-model="fullname" required>
+                <label class="active">Họ và tên</label>
+                <em class=" text-danger" ng-show="updateForm.fullname.$touched && updateForm.fullname.$error.required">
+                    <small>Không được để trống họ và tên</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="email" class="form-control" name="email" ng-model="email" required>
+                <label class="active">Email</label>
+                <em class="text-danger" ng-show="updateForm.email.$touched && updateForm.email.$error.required">
+                    <small>Không được để trống email</small>
+                </em>
+                <em class="text-danger" ng-show="updateForm.email.$touched && updateForm.email.$error.email">
+                    <small>Không đúng định dạng mail</small>
+                </em>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="gender" ng-model="gender" required>
+                    <option value="" disabled>Giới tính</option>
+                    <option value="true">Nam</option>
+                    <option value="false">Nữ</option>
+                </select>
+                <em class="text-danger" ng-show="updateForm.gender.$touched && updateForm.gender.$error.required">
+                    <small>Không được để trống giới tính</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="text" class="form-control" name="birthday" ng-model="birthday" required date-Format>
+                <label class="active">Ngày sinh</label>
+                <em class="text-danger" ng-show="updateForm.birthday.$touched && updateForm.birthday.$error.required">
+                    <small>Không được để trống ngày sinh</small>
+                </em>
+                <em class="text-danger" ng-show="updateForm.birthday.$touched && updateForm.birthday.$error.charE">
+                    <small>Không đúng định dạng ngày dd-MM-yyyy</small>
+                </em>
+            </div><br>
+            <div ng-if="message.length > 0">
+                <div class="alert alert-{{ alert }} alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-info btn-block" ng-click="update()"
+                    ng-disabled="!updateForm.$valid">
+                    Cập nhật thông tin
+                </button>
+                <a href="#!change" class="btn btn-light btn-block">
+                    Đổi mật khẩu
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

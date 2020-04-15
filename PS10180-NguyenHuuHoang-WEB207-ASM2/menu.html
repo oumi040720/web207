@@ -1,0 +1,58 @@
+<a class="navbar-brand" href="#!home">FPT Polytechnic</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav col-sm-9">
+        <li class="nav-item">
+            <a class="nav-link" href="#!about"> Giới thiệu </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!contact">Liên hệ</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!feedback">Góp ý</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!faq">Hỏi đáp</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!result">Kết quả</a>
+        </li>
+    </ul>
+
+    <ul class="navbar-nav col-sm-3 float-left">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                <span ng-if="loggedIn">
+                    <i class="fas fa-user"></i> Xin chào, {{ USER.username }}
+                </span>
+                <span ng-if="!loggedIn">
+                    <i class="fas fa-user"></i> Tài khoản
+                </span>
+            </a>
+            <div class="dropdown-menu">
+                <div ng-if="loggedIn">
+                    <a class="dropdown-item" href="#!logout" ng-click="logout()">Đăng xuất</a>
+                    <a type="button" class="dropdown-item" href="#!change">
+                        Đổi mật khẩu
+                    </a>
+                    <a type="button" class="dropdown-item" href="#!update">
+                        Cập nhật tài khoản
+                    </a>
+                </div>
+                <div ng-if="!loggedIn">
+                    <a type="button" class="dropdown-item" href="#!register">
+                        Đăng ký
+                    </a>
+                    <a type="button" class="dropdown-item" href="#!login">
+                        Đăng nhập
+                    </a>
+                    <a type="button" class="dropdown-item" href="#!forgot">
+                        Quên mật khẩu
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

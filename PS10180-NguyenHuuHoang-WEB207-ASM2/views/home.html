@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="card-header">
+        <h6><strong>Danh sách các chủ đề</strong></h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6" ng-repeat="subject in subjects | limitTo: 4 : begin">
+                <br>
+                <div class="card item text-center">
+                    <div class="card-body">
+                        <img src="images/logos/{{ subject.Logo }}" width="100%" alt="{{ subject.Id }}">
+                    </div>
+                    <div class="card-footer">{{ subject.Name }}</div>
+                    <a href="#!quiz/{{ subject.Id }}"><span>Làm bài</span></a>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 20px 0;">
+        <div class="col-sm-12">
+            <ul class="pagination pagination-circle pagination-lg justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="First"
+                        ng-click="first()">
+                        <i class="fas fa-fast-backward"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Prev"
+                        ng-click="prev()">
+                        <i class="fas fa-backward"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Next"
+                        ng-click="next()">
+                        <i class="fas fa-forward"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Last"
+                        ng-click="last()">
+                        <i class="fas fa-fast-forward"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

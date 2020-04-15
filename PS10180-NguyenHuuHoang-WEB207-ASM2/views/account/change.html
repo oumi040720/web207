@@ -1,0 +1,59 @@
+<div class="row" ng-controller="changeCtrl">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="text-center">
+            <h3>Đổi mật khẩu</h3>
+        </div>
+        <form name="changeForm">
+            <div class="md-form">
+                <input type="text" class="form-control" disabled ng-model="USER.username">
+                <label class="active">Tài khoản</label>
+            </div>
+            <div class="md-form">
+                <input type="password" class="form-control" name="oldPassword" ng-model="oldPassword" required>
+                <label>Mật khẩu cũ</label>
+                <em class="text-danger" ng-show="changeForm.password.$touched && changeForm.password.$invalid">
+                    <small>Không được để trống mật khẩu</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="password" class="form-control" name="password" ng-model="password" required>
+                <label>Mật khẩu mới</label>
+                <em class="text-danger" ng-show="changeForm.newPassword.$touched && changeForm.newPassword.$invalid">
+                    <small>Không được để trống mật khẩu mới</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="password" class="form-control" name="confirmPassword" ng-model="confirmPassword" required
+                    confirm>
+                <label>Xác nhận mật khẩu mới</label>
+                <em class="text-danger"
+                    ng-show="changeForm.confirmNewPassword.$touched && changeForm.confirmNewPassword.$invalid">
+                    <small>Không được để trống xác nhận mật khẩu mới</small>
+                </em>
+                <em class="text-danger"
+                    ng-show="changeForm.confirmPassword.$touched && changeForm.confirmPassword.$error.charE">
+                    <small>Xác nhận mật khẩu không chính xác</small>
+                </em>
+            </div>
+            <div ng-if="message.length > 0">
+                <div class="alert alert-{{ alert }} alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block" ng-click="change()"
+                    ng-disabled="!changeForm.$valid">
+                    Đổi mật khẩu
+                </button>
+                <a href="#!login" class="btn btn-danger btn-block">
+                    Đăng nhập
+                </a>
+                <a href="#!register" class="btn btn-outline-info btn-block">
+                    Tạo tài khoản
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

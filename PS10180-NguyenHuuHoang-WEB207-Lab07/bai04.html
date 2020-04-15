@@ -7,7 +7,8 @@
     <title>Bài 04</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
@@ -46,25 +47,25 @@
                         </tr>
                     </tbody>
                 </table>
-                <ul class="nav pager">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" ng-click="first()">
-                            First
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a href="#" class="page-link" ng-click="first()">
+                            <i class="fas fa-fast-backward"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" ng-click="prev()">
-                            Prev
+                    <li class="page-item">
+                        <a href="#" class="page-link" ng-click="prev()">
+                            <i class="fas fa-backward"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" ng-click="next()">
-                            Next
+                    <li class="page-item">
+                        <a href="#" class="page-link" ng-click="next()">
+                            <i class="fas fa-forward"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" ng-click="last()">
-                            Last
+                    <li class="page-item">
+                        <a href="#" class="page-link" ng-click="last()">
+                            <i class="fas fa-fast-forward"></i>
                         </a>
                     </li>
                 </ul>
