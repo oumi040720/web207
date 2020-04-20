@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-header" data-toggle="collapse" dataparent="#accordion" href="#category">
+        <i class="fas fa-list-ul"></i> <strong>Danh mục</strong>
+    </div>
+    <div id="category" class="card-body">
+        <div class="list-group" ng-repeat="subject in subjects">
+            <a href="#!quiz/{{ subject.Id }}" class="list-group-item">{{ subject.Name }}</a>
+        </div>
+    </div>
+</div>

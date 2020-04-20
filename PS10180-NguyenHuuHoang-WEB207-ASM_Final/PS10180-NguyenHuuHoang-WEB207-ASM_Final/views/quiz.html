@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-sm-12 ">
+        <img width="60%" class="img-fluid mx-auto d-block" src="./images/quiz.png" alt="quiz">
+    </div>
+    <br>
+    <div class="col-sm-12" ng-repeat="quiz in quizs | limitTo: 1 : begin">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-sm-10"><i class="fas fa-list-ul"></i> {{ subjectName }}</div>
+                    <div class="col-sm-2">
+                        <div class="text-center badge badge-pill badge-info">
+                            {{ time }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <u>Câu {{ quiz.No }}:</u> {{ quiz.Text }}
+                </div>
+                <hr>
+                <div ng-repeat="option in quiz.Answers">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <input type="radio" id="{{ option.Id }}" ng-click="onSelect(quiz, option);"
+                                    ng-model="option.Selected" value="{{ option.Id }}" name="{{ quiz.Id }}">
+                            </div>
+                            <div class="col-sm-11"> {{ option.Text }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="float-left">
+                            Điểm: {{ count }} / {{ quizs.length }}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-success float-right" ng-click="submit()" ng-show="isDoneAnswer()">Nộp
+                            bài</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 20px 0;">
+    <div class="col-sm-12">
+        <ul class="pagination pagination-circle pagination-lg justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="First"
+                    ng-click="first()">
+                    <i class="fas fa-fast-backward"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Prev"
+                    ng-click="prev()">
+                    <i class="fas fa-backward"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Next"
+                    ng-click="next()">
+                    <i class="fas fa-forward"></i>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="" data-toggle="tooltip" data-placement="bottom" title="Last"
+                    ng-click="last()">
+                    <i class="fas fa-fast-forward"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

@@ -1,0 +1,68 @@
+<div class="row" ng-controller="loginCtrl">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="text-center">
+            <h3>Đăng nhập</h3>
+        </div>
+        <form name="loginForm">
+            <br>
+            <div class="md-form">
+                <input type="text" name="username" ng-model="username" class="form-control" required>
+                <label>Tên tài khoản</label>
+                <em class="text-danger" ng-show="loginForm.username.$touched && loginForm.username.$invalid">
+                    <small>Không được để trống tên tài khoản</small>
+                </em>
+            </div>
+            <div class="md-form">
+                <input type="password" name="password" ng-model="password" class="form-control" required>
+                <label>Mật khẩu</label>
+                <em class="text-danger" ng-show="loginForm.password.$touched && loginForm.password.$invalid">
+                    <small>Không được để trống mật khẩu</small>
+                </em>
+            </div>
+            <div ng-if="notLogin.length > 0">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ notLogin }}
+                </div>
+            </div>
+            <div ng-if="resultLogin.length > 0">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ resultLogin }}
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <div>
+                        <button type="submit" class="btn btn-danger btn-block" ng-disabled="!loginForm.$valid"
+                            ng-click="checkLogin()">
+                            Đăng nhập
+                        </button><br>
+                        <a href="#!forgot" class="btn btn-light btn-block">
+                            Quên mật khẩu?
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br>
+        <div class="row">
+            <div class="col-sm-5">
+                <hr>
+            </div>
+            <div class="col-sm-2 text-center">
+                <span><small>Hoặc</small></span>
+            </div>
+            <div class="col-sm-5">
+                <hr>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#!register" class="btn btn-outline-info btn-block">
+                Tạo tài khoản
+            </a>
+        </div>
+    </div>
+</div>

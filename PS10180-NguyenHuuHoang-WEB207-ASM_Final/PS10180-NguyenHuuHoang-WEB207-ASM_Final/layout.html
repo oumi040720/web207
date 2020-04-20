@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+
+    USERNAME: admin
+    PASSWORD: 123
+
+ -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS10180 - Nguyễn Hữu Hoàng</title>
+
+    <!--  Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!--  Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <!-- Firebace -->
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/styte.css">
+
+    <!-- vendor -->
+    <link href="vendor/css/mdb.min.css" rel="stylesheet">
+    <link href="vendor/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" ng-app="myapp" ng-controller="myctrl">
+        <header class="row">
+            <img src="./images/banner.png" width="100%" alt="banner">
+        </header>
+
+        <nav class="row navbar navbar-expand-sm bg-dark navbar-dark" ng-include="'menu.html'"> </nav>
+
+        <div class="row" style="padding: 25px 0px;">
+            <div class="col-sm-12 card" style="padding-right: 10px;">
+                <div class="row card-body">
+                    <article class="col-sm-9">
+                        <ng-view></ng-view>
+                    </article>
+
+                    <aside class="col-sm-3">
+                        <div ng-include="'category.html'"></div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+        <footer class="row bg-light">
+            <div class="text-center col-sm-12">
+                <br>
+                <p>FPT Polytechnic &copy; 2020. All rights reserved.</p>
+                <br>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="vendor/js/mdb.min.js"></script>
+
+    <!-- js -->
+    <script src="js/controller.js"></script>
+    <script src="js/account/LoginController.js"></script>
+    <script src="js/account/RegisterController.js"></script>
+    <script src="js/account/ForgotController.js"></script>
+    <script src="js/account/UpdateController.js"></script>
+    <script src="js/account/ChangeController.js"></script>
+    <script src="js/QuizController.js"></script>
+    <script src="js/ResultController.js"></script>
+    <script src="js/CustomValidation.js"></script>
+</body>
+
+</html>
