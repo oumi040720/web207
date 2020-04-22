@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--  Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!--  Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-app="myapp" ng-controller="myctrl">
+        <br>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#cart">
+                    CART <span class="badge badge-info">{{ totalQuantity }}</span>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="home" class="container tab-pane active text-center"><br>
+                <h3>Shop</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <th>IMAGE</th>
+                        <th>NAME</th>
+                        <th>PRICE</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="product in products">
+                        <td>{{ product.id }}</td>
+                        <td><img class="img-fluid" width="200px" src="images/products/{{ product.image }}"></td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="addToCart(product)">Add to cart</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="cart" class="container tab-pane fade text-center"><br>
+                <h3>Cart</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <th>IMAGE</th>
+                        <th>NAME</th>
+                        <th>PRICE</th>
+                        <th>QUANTITY</th>
+                        <th>TOTAL</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-if="totalQuantity == 0">
+                        <td colspan="7">The cart has no item</td>
+                    </tr>
+                    <tr ng-repeat="item in cart">
+                        <td>{{ item.id }}</td>
+                        <td><img class="img-fluid" width="200px" src="images/products/{{ item.image }}"></td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>
+                            <span><button class="btn btn-danger" ng-click="minusQuantity(item)">-</button></span>
+                            <span style="margin: 0 10px;">{{ item.quantity }}</span>
+                            <span><button class="btn btn-warning" ng-click="addQuantity(item)">+</button></span>
+                        </td>
+                        <td>{{ item.price * item.quantity}}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="removeToCart(item)">Remove to cart</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">TOTAL</th>
+                        <th>{{ total }}</th>
+                        <th></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function ($scope) {
+            $scope.cart = []
+            $scope.total = 0
+            $scope.totalQuantity = 0
+            $scope.products = [
+                {
+                    "id": 1001,
+                    "name": "Clock",
+                    "price": 100,
+                    "image": "1001.jpg"
+                },
+                {
+                    "id": 1003,
+                    "name": "Laptop",
+                    "price": 1000,
+                    "image": "1003.jpg"
+                },
+                {
+                    "id": 1005,
+                    "name": "Camera",
+                    "price": 500,
+                    "image": "1005.jpg"
+                },
+                {
+                    "id": 1007,
+                    "name": "Hat",
+                    "price": 50,
+                    "image": "1007.jpg"
+                },
+                {
+                    "id": 1012,
+                    "name": "Mobile",
+                    "price": 400,
+                    "image": "1012.jpg"
+                },
+                {
+                    "id": 1014,
+                    "name": "Cap",
+                    "price": 50,
+                    "image": "1014.jpg"
+                },
+                {
+                    "id": 1097,
+                    "name": "motobike",
+                    "price": 4000,
+                    "image": "1097.jpg"
+                },
+                {
+                    "id": 1118,
+                    "name": "Fan",
+                    "price": 300,
+                    "image": "1118.jpg"
+                },
+                {
+                    "id": 1023,
+                    "name": "perfume",
+                    "price": 499,
+                    "image": "1023.jpg"
+                }
+            ]
+
+            $scope.sum = function () {
+                $scope.total = 0
+                $scope.totalQuantity = 0
+                for (let i = 0; i < $scope.cart.length; i++) {
+                    $scope.total += ($scope.cart[i].quantity * $scope.cart[i].price)
+                    $scope.totalQuantity += $scope.cart[i].quantity
+                }
+            }
+
+            $scope.removeToCart = function (item) {
+                for (let i = 0; i < $scope.cart.length; i++) {
+                    if ($scope.cart[i].id === item.id) {
+                        $scope.cart.splice(i, 1)
+                    }
+                }
+                $scope.sum()
+            }
+
+            $scope.addToCart = function (product) {
+                var flag = false
+                var index = 0;
+                for (let i = 0; i < $scope.cart.length; i++) {
+                    if ($scope.cart[i].id === product.id) {
+                        index = i;
+                        flag = true
+                        break;
+                    }
+                }
+                var item = {}
+
+                if (flag) {
+                    item = {
+                        "id": product.id,
+                        "name": product.name,
+                        "price": product.price,
+                        "quantity": $scope.cart[index].quantity + 1,
+                        "image": product.image
+                    }
+                    $scope.cart.splice(index, 1)
+                } else {
+                    item = {
+                        "id": product.id,
+                        "name": product.name,
+                        "price": product.price,
+                        "quantity": 1,
+                        "image": product.image
+                    }
+                }
+                $scope.cart.push(item)
+                $scope.sum()
+            }
+
+            $scope.addQuantity = function (item) {
+                for (let i = 0; i < $scope.cart.length; i++) {
+                    if ($scope.cart[i].id === item.id) {
+                        $scope.cart[i].quantity += 1
+                    }
+                }
+                $scope.sum()
+            }
+
+            $scope.minusQuantity = function (item) {
+                for (let i = 0; i < $scope.cart.length; i++) {
+                    if ($scope.cart[i].id === item.id && item.quantity > 1) {
+                        $scope.cart[i].quantity -= 1
+                    }
+                }
+                $scope.sum()
+            }
+        })
+    </script>
+</body>
+
+</html>
